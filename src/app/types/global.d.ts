@@ -5,3 +5,12 @@ declare module "*.scss"{
     const classNames:IClassNames;
     export =classNames
 }
+
+declare module "*.png";
+declare module "*.ipg";
+declare module "*.jpeg";
+
+declare module '*.svg' {
+const svg: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
+export default svg;
+}
