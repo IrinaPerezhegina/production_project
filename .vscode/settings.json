@@ -1,7 +1,20 @@
 {
-    "i18n-ally.localesPaths": [
-        "public/locales",
-        "src/shared/config/i18n"
-    ],
-    "i18n-ally.keystyle": "nested"
+"eslint.enable": true,
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+},
+"eslint.options": { "overrideConfigFile": "./.eslintrc.js" },
+"eslint.nodePath": "./node_modules",
+"eslint.validate": [
+"javascript",
+"javascriptreact",
+"html",
+"typescript",
+"typescriptreact"
+],
+"eslint.codeActionsOnSave.rules": null,
+"i18n-ally.localesPaths": [
+    "public/locales",
+    "src/shared/config/i18n"
+],
 }
