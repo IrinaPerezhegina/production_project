@@ -1,20 +1,26 @@
 {
-"eslint.enable": true,
-"editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-},
-"eslint.options": { "overrideConfigFile": "./.eslintrc.js" },
-"eslint.nodePath": "./node_modules",
-"eslint.validate": [
-"javascript",
-"javascriptreact",
-"html",
-"typescript",
-"typescriptreact"
-],
-"eslint.codeActionsOnSave.rules": null,
 "i18n-ally.localesPaths": [
     "public/locales",
     "src/shared/config/i18n"
 ],
-}
+    
+"stylelint.config": null,
+"stylelint.enable": true,
+"css.validate": true,
+"scss.validate": true,
+"stylelint.validate": [
+"css",
+"scss"
+],
+"[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint" 
+},
+"[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+},
+"editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "always",
+    "source.fixAll.eslint": "always"
+},
+  
+} 

@@ -1,45 +1,38 @@
 @charset "UTF-8";
+
 @font-face {
-  font-family: 'Unnamed';
-  src: url('/src/app/assets/fonts/Unnamed-Regular.eot');
-  src: local("☺"), url('/src/app/assets/fonts/Unnamed-Regular.woff') format("woff"), url('/src/app/assets/fonts/Unnamed-Regular.ttf') format("truetype"), url('/src/app/assets/fonts/Unnamed-Regular.svg') format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: Unnamed;
+    src: url("/src/app/assets/fonts/Unnamed-Regular.eot");
+    src: local("☺"), url("/src/app/assets/fonts/Unnamed-Regular.woff") format("woff"), url("/src/app/assets/fonts/Unnamed-Regular.ttf") format("truetype"), url("/src/app/assets/fonts/Unnamed-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/src/app/assets/fonts/Montserrat-Regular.eot');
-  src: local("☺"), url('/src/app/assets/fonts/Montserrat-Regular.woff') format("woff"), url('/src/app/assets/fonts/Montserrat-Regular.ttf') format('truetype'), url('/src/app/assets/fonts/Montserrat-Regular.svg') format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: Montserrat;
+    src: url("/src/app/assets/fonts/Montserrat-Regular.eot");
+    src: local("☺"), url("/src/app/assets/fonts/Montserrat-Regular.woff") format("woff"), url("/src/app/assets/fonts/Montserrat-Regular.ttf") format("truetype"), url("/src/app/assets/fonts/Montserrat-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url("/src/app/assets/fonts/Montserrat-Regular.eot");
-  src: local("☺"), url("/src/app/assets/fonts/Montserrat-Regular.woff") format("woff"), url('/src/app/assets/fonts/Montserrat-Regular.ttf') format('truetype'), url('/src/app/assets/fonts/Montserrat-Regular.svg') format("svg");
-  font-weight: 700;
-  font-style: bold;
+    font-family: Montserrat;
+    src: url("/src/app/assets/fonts/Montserrat-Regular.eot");
+    src: local("☺"), url("/src/app/assets/fonts/Montserrat-Regular.woff") format("woff"), url("/src/app/assets/fonts/Montserrat-Regular.ttf") format("truetype"), url("/src/app/assets/fonts/Montserrat-Regular.svg") format("svg");
+    font-weight: 700;
+    font-style: bold;
 }
 
-:root{
+:root {
     --font-family-main: "Montserrat", "Times New Roman";
-    
-    --font-size-m:16px;
-    --font-line-m:24px;
-    --font-m:var(--font-size-m)/var(--font-line-m) var(--font-family-main);
-
-
-    --font-size-l:24px;
-    --font-line-l:32px;
-    --font-l:var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-
-    
-    //Размер
-    --navbar-height:50px;
-
-
-    --sidebar-width:300px;
+    --font-size-m: 16px;
+    --font-line-m: 24px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+    --font-size-l: 24px;
+    --font-line-l: 32px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+    --navbar-height: 50px;
+    --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
-  }
+}
