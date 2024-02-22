@@ -1,4 +1,4 @@
-{
+ {
 "i18n-ally.localesPaths": [
     "public/locales",
     "src/shared/config/i18n"
@@ -22,5 +22,6 @@
     "source.fixAll.stylelint": "always",
     "source.fixAll.eslint": "always"
 },
+
   
 } 
