@@ -1,9 +1,7 @@
  {
-"i18n-ally.localesPaths": [
-    "public/locales",
-    "src/shared/config/i18n"
-],
-    
+"i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+"i18n-ally.namespace": true,
+// "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
 "stylelint.config": null,
 "stylelint.enable": true,
 "css.validate": true,
@@ -22,6 +20,7 @@
     "source.fixAll.stylelint": "always",
     "source.fixAll.eslint": "always"
 },
+"i18n-ally.keystyle": "flat",
 
 
 

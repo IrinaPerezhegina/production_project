@@ -7,7 +7,7 @@ className?: string;
 }
 
 export const LangSwitcher = ({ className }:LangSwitcherProps) => {
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation('translation');
 
     const toggle = async () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -18,7 +18,7 @@ export const LangSwitcher = ({ className }:LangSwitcherProps) => {
             theme={ThemeButton.CLEAR}
             onClick={toggle}
         >
-            {t('Язык')}
+            {t('lang')}
         </Button>
 
     );

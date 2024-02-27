@@ -5,7 +5,7 @@ const MainPage = () => {
     return (
         <div>
 
-            {t('Главная старница')}
+            {t('Main Page')}
         </div>
     );
 };

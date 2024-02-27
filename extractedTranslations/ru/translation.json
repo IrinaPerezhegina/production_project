@@ -1,7 +1,19 @@
 {
+  "About Page": "About Page",
+  "Main Page": "Main Page",
+  "Page not found": "Page not found",
+  "Throw error": "Throw error",
+  "about": "about",
+  "lang": "lang",
+  "main": "main",
+  "refresh the page": "refresh the page",
+  "throw error": "throw error",
+  "unexpected error": "unexpected error",
   "Главная старница": "Главная старница",
   "О сайте": "О сайте",
   "О сайте12345": "О сайте12345",
+  "Обновить страницу": "Обновить страницу",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
   "Страница не найдена": "Страница не найдена",
   "Язык": "Язык"
 }
