@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
@@ -12,7 +11,7 @@ export const ErrorPage = ({ className }:ErrorPageProps) => {
     const { t } = useTranslation('translation');
 
     const reloadPage = () => {
-        location.reload();
+        window.location.reload();
     };
     return (
         <div className={classNames(cls.ErrorPage, {}, [className])}>
