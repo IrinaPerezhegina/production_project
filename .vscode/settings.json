@@ -21,8 +21,6 @@
     "source.fixAll.eslint": "always"
 },
 "i18n-ally.keystyle": "flat",
+"eslint.debug": true,
 
-
-
-  
 } 
