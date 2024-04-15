@@ -10,7 +10,7 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof NotFoundPage>;
-
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
 
 export const Normal = Template.bind({});
