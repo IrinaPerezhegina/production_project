@@ -10,8 +10,8 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof MainPage>;
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args as any} />;
+
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
