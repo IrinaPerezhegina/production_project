@@ -6,10 +6,6 @@
     position: relative;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -18,12 +14,20 @@
     width: 100%;
 }
 
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+}
+
 .lang {
     margin-left: 20px;
 }
 
 .collapsedBtn {
     position: absolute;
-    right: -40px;
-    bottom: 40px;
+    right: -32px;
+    bottom: 32px;
 }
