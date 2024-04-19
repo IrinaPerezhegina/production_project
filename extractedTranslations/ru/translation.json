@@ -1,9 +1,13 @@
 {
   "About Page": "About Page",
+  "Lorem ipsum dolor sit amet consectetur  adipisicing elit": {
+    " Eius temporibus  numquam architecto, est ipsam deserunt quis magnam sapiente quae facilis eligendi, eveniet doloribus nesciunt totam omnis, aspernatur incumque mollitia": " Eius temporibus  numquam architecto, est ipsam deserunt quis magnam sapiente quae facilis eligendi, eveniet doloribus nesciunt totam omnis, aspernatur incumque mollitia"
+  },
   "Main Page": "Main Page",
   "Page not found": "Page not found",
   "Throw error": "Throw error",
   "about": "about",
+  "enter": "enter",
   "lang": "lang",
   "main": "main",
   "refresh the page": "refresh the page",
