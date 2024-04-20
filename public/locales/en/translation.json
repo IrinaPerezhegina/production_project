@@ -13,5 +13,7 @@
   "throw error": "throw error",
   "switch": "switch",
   "short": "En",
-  "enter": "enter"
+  "enter": "enter",
+  "increment": "increment",
+  "decrement": "decrement"
 }
