@@ -15,5 +15,7 @@
   "short": "Ru",
   "enter": "Войти",
   "increment": "прибавление",
-  "decrement": "убавление"
+  "decrement": "убавление",
+  "enter username": "Введите логин",
+  "enter password": "Введите пароль"
 }

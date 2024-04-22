@@ -15,5 +15,7 @@
   "short": "En",
   "enter": "Enter",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "enter username": "Enter username",
+  "enter password": "Enter password"
 }
