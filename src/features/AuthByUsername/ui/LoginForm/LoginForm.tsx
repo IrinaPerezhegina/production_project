@@ -2,10 +2,13 @@ import { classNames } from 'shared/lib/ClassNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { memo, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     getLoginUsername,
 } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -23,20 +26,16 @@ import cls from './LoginForm.module.scss';
 export interface LoginFormProps {
 className?: string;
 }
+
+const initialReducers:ReducersList = {
+    loginForm: loginReducer,
+
+};
+
 const LoginForm = memo(({ className }:LoginFormProps) => {
     const { t } = useTranslation('translation');
     const dispatch = useDispatch();
-    const store = useStore() as ReduxStoreWithManager;
 
-    useEffect(() => {
-        store.reducerManager.add('loginForm', loginReducer);
-        dispatch({ type: '@INIT loginForm reducer' });
-        return () => {
-            store.reducerManager.remove('loginForm');
-            dispatch({ type: '@DESTROY loginForm reducer' });
-        };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
@@ -55,36 +54,38 @@ const LoginForm = memo(({ className }:LoginFormProps) => {
     }, [dispatch, username, password]);
 
     return (
-        <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text title={t('form authorizations')} />
-            {error && (
-                <Text
-                    text={t('You have entered an incorrect username or password')}
-                    theme={TextTheme.ERROR}
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text title={t('form authorizations')} />
+                {error && (
+                    <Text
+                        text={t('You have entered an incorrect username or password')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
+                <Input
+                    autofocus
+                    placeholder={t('enter username')}
+                    className={cls.input}
+                    onChange={onChangeUsername}
+                    value={username}
                 />
-            )}
-            <Input
-                autofocus
-                placeholder={t('enter username')}
-                className={cls.input}
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <Input
-                placeholder={t('enter password')}
-                className={cls.input}
-                onChange={onChangePassword}
-                value={password}
-            />
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                className={cls.loginBtn}
-                onClick={onLoginClick}
-                disabled={isLoading}
-            >
-                {t('enter')}
-            </Button>
-        </div>
+                <Input
+                    placeholder={t('enter password')}
+                    className={cls.input}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    className={cls.loginBtn}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
+                    {t('enter')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
 
     );
 });
