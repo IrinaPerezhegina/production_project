@@ -25,6 +25,15 @@
         "password": "123"
       }
     ],
-    "profile": { "name": "typicode" }
+    "profile": { 
+      "first": "Irina",
+      "lastname":"Perezhegina",
+      "age":34,
+      "currency":"RUB",
+      "country":"Russia",
+      "city":"Tyumen",
+      "username":"admin",
+      "avatar":"http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
+     }
   }
   

@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/ClassNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getLoginUsername,
 } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -25,6 +26,7 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
 className?: string;
+onSuccess:()=>void
 }
 
 const initialReducers:ReducersList = {
@@ -32,9 +34,9 @@ const initialReducers:ReducersList = {
 
 };
 
-const LoginForm = memo(({ className }:LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
     const { t } = useTranslation('translation');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -49,9 +51,12 @@ const LoginForm = memo(({ className }:LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, username, password, onSuccess]);
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>

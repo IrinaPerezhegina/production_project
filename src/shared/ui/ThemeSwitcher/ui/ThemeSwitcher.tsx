@@ -2,13 +2,14 @@ import { useTheme, Theme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/ClassNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo } from 'react';
 
 interface AppLinkProps {
 className?: string;
 }
 
-export const ThemeSwitcher = ({ className }:AppLinkProps) => {
+export const ThemeSwitcher = memo(({ className }:AppLinkProps) => {
     const { theme, toggleTheme } = useTheme();
     return (
         <Button
@@ -19,4 +20,4 @@ export const ThemeSwitcher = ({ className }:AppLinkProps) => {
             {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
         </Button>
     );
-};
+});

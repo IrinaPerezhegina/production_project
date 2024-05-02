@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/ClassNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';

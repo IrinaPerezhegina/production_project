@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/ClassNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Suspense } from 'react';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -20,7 +20,7 @@ export const LoginModal = ({ className, isOpen, onClose }:LoginModalProps) => (
         lazy
     >
         <Suspense fallback={<Loader />}>
-            <LoginFormAsync />
+            <LoginFormAsync onSuccess={onClose} />
         </Suspense>
     </Modal>
 

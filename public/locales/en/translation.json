@@ -20,5 +20,6 @@
   "enter password": "Enter password",
   "form authorizations": "Auth form",
   "exit": "Exit",
-  "You have entered an incorrect username or password": "You have entered an incorrect username or password"
+  "You have entered an incorrect username or password": "You have entered an incorrect username or password",
+  "profile": "Profile"
 }
