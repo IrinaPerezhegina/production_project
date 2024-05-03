@@ -32,7 +32,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.resolve?.extensions?.push('.ts', 'tsx');
     config.module?.rules?.push(buildCssLoader(true));
     config?.plugins?.push(new DefinePlugin({
-        __IS_DEV__: true,
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(''),
     }));
 
     return config;
