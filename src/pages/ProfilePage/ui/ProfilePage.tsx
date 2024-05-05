@@ -4,7 +4,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const reducers:ReducersList = {
@@ -18,7 +18,7 @@ className?: string;
 export const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const dispatch = useAppDispatch();
     useEffect(() => {
-        // dispatch(fetchProfileData());
+        dispatch(fetchProfileData());
     }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
