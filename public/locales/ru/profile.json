@@ -3,5 +3,7 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "your name": "Ваше имя",
-  "your last name": "Ваша фамилия"
+  "your last name": "Ваша фамилия",
+  "an error occurred while uploading the profile": "Произошла ошибка при загрузке профиля",
+  "try refreshing the page": "Попробуйте обновить страницу"
 }

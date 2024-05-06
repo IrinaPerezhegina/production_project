@@ -11,8 +11,8 @@ declare module '*.ipg';
 declare module '*.jpeg';
 
 declare module '*.svg' {
-// eslint-disable-next-line no-undef
-const svg: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
+
+    const svg: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
 export default svg;
 }
 
