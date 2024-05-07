@@ -27,3 +27,7 @@ export {
 export {
     getProfileIsLoading,
 } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
+
+export {
+    getProfileReadonly,
+} from './model/selectors/getProfileReadonly/getProfileReadonly';
