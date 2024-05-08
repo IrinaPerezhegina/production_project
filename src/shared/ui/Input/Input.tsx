@@ -10,7 +10,7 @@ type HTMLInputProps =Omit<InputHTMLAttributes<HTMLInputElement>, 'value'| 'onCha
 
 interface InputProps extends HTMLInputProps {
 className?: string;
-value?:string;
+value?:string|number;
 onChange?:(value:string)=>void;
 autofocus?:boolean;
 readonly?:boolean
@@ -30,6 +30,8 @@ export const Input = memo((props:InputProps) => {
     const [isFocus, setIsFocus] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
     const ref = useRef<HTMLInputElement>(null);
+
+    const isCaretVisible = isFocus && !readonly;
     useEffect(() => {
         if (autofocus) {
             setIsFocus(true);
@@ -76,7 +78,7 @@ export const Input = memo((props:InputProps) => {
                     readOnly={readonly}
                     {...otherProps}
                 />
-                {isFocus && (
+                {isCaretVisible && (
                     <span
                         className={cls.caret}
                         style={{ left: `${caretPosition * 9}px` }}

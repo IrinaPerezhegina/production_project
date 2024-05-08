@@ -1,39 +1,38 @@
 {
-    "posts": [
-      {
-        "id": "1",
-        "title": "json-server",
-        "userId":"1"
-      },
-      {
-        "id": "2",
-        "title": "json-server",
-        "userId": "2"
-      }
-    ],
-    "comments": [
-      {
-        "id": "1",
-        "body": "some comment",
-        "postId": "1"
-      }
-    ],
-    "users": [
-      {
-        "id": "1",
-        "username": "admin",
-        "password": "123"
-      }
-    ],
-    "profile": { 
-      "first": "Irina",
-      "lastname":"Perezhegina",
-      "age":34,
-      "currency":"RUB",
-      "country":"Russia",
-      "city":"Tyumen",
-      "username":"admin",
-      "avatar":"http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
-     }
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Irina",
+    "lastname": "Perezhegina",
+    "age": 34,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Tyumen",
+    "username": "admin",
+    "avatar": "http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
   }
-  
+}

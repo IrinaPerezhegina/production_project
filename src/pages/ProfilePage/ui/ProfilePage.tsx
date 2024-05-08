@@ -6,9 +6,10 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileData,
     getProfileError,
+    getProfileForm,
     getProfileIsLoading,
+    getProfileReadonly,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -27,9 +28,10 @@ className?: string;
 
 export const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
+    const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
+    const readonly = useSelector(getProfileReadonly);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -43,16 +45,27 @@ export const ProfilePage = memo(({ className }:ProfilePageProps) => {
         dispatch(profileActions.updateProfile({ lastname: value || '' }));
     }, [dispatch]);
 
+    const onChangeAge = useCallback((value?:string) => {
+        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value?:string) => {
+        dispatch(profileActions.updateProfile({ city: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 <ProfileCard
-                    data={data}
+                    data={formData}
                     isLoading={isLoading}
                     error={error}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    readonly={readonly}
                 />
             </div>
         </DynamicModuleLoader>
