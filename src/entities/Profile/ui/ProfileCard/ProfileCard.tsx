@@ -4,6 +4,8 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Select } from 'shared/ui/Select/Select';
+import { Currency } from 'entities/Currency/model/types/currency';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -115,6 +117,14 @@ export const ProfileCard = (props:ProfileCardProps) => {
                     placeholder={t('enter the link to the avatar')}
                     onChange={onChangeAvatar}
                     readonly={readonly}
+                />
+                <Select
+                    label={t('specify the currency')}
+                    options={[
+                        { value: Currency.RUB, content: Currency.RUB },
+                        { value: Currency.EUR, content: Currency.EUR },
+                        { value: Currency.USD, content: Currency.USD },
+                    ]}
                 />
             </div>
         </div>
