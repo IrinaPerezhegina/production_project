@@ -13,5 +13,6 @@
   "username": "Имя пользователя",
   "enter username": "Введите ваше Имя пользователя",
   "enter the link to the avatar": "Введите ссылку на аватар",
-  "specify the currency": "Укажите валюту"
+  "specify the currency": "Укажите валюту",
+  "specify the country": "Укажите страну"
 }
