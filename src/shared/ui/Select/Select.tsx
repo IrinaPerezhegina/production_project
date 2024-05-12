@@ -42,7 +42,7 @@ export const Select = memo((props:SelectProps) => {
     };
 
     const mods:Mods = {
-
+        [cls.readonly]: readonly,
     };
     return (
 
