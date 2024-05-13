@@ -1,4 +1,5 @@
 {
+  "": "",
   "About Page": "About Page",
   "Lorem ipsum dolor sit amet consectetur  adipisicing elit": {
     " Eius temporibus  numquam architecto, est ipsam deserunt quis magnam sapiente quae facilis eligendi, eveniet doloribus nesciunt totam omnis, aspernatur incumque mollitia": " Eius temporibus  numquam architecto, est ipsam deserunt quis magnam sapiente quae facilis eligendi, eveniet doloribus nesciunt totam omnis, aspernatur incumque mollitia"
@@ -19,17 +20,22 @@
   "enter the link to the avatar": "enter the link to the avatar",
   "enter username": "enter username",
   "exit": "exit",
+  "first and last name are required": "first and last name are required",
   "form authorizations": "form authorizations",
+  "incorrect age": "incorrect age",
   "increment": "increment",
   "lang": "lang",
   "main": "main",
   "profile": "profile",
   "refresh the page": "refresh the page",
   "save": "save",
+  "server error when saving": "server error when saving",
   "short": "short",
   "specify the country": "specify the country",
   "specify the currency": "specify the currency",
   "switch": "switch",
+  "the country is not specified": "the country is not specified",
+  "the data is not specified": "the data is not specified",
   "throw error": "throw error",
   "try refreshing the page": "try refreshing the page",
   "unexpected error": "unexpected error",
