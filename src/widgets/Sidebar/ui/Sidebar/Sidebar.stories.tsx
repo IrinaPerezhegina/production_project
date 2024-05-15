@@ -40,8 +40,7 @@ export const NoAuth = Template.bind({});
 NoAuth.args = {};
 NoAuth.decorators = [
     StoreDecorator({
-        user: {
-            authData: { },
-        },
+        user: {},
+
     }),
 ];
