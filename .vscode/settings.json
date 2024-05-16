@@ -22,5 +22,7 @@
 },
 "i18n-ally.keystyle": "flat",
 "eslint.debug": true,
-
+"files.associations": {
+    "**/.fttemplates/**": "plaintext",
+    }
 } 
