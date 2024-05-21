@@ -4,10 +4,15 @@
     position: relative;
     background: var(--code-bg);
     text-align: left;
+    overflow: auto;
 }
 
 .copyBtn {
     position: absolute;
     right: 20px;
     top: 20px;
+}
+
+.copyIcon path {
+    stroke: var(--primary-color);
 }

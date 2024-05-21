@@ -13,7 +13,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{id:string}>();
-    if (!id) {
+    if (!id && __PROJECT__ !== 'storybook') {
         return (
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 { t('the article was not found')}
@@ -22,7 +22,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     }
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
-            <ArticleDetails id={id} />
+            <ArticleDetails id={id || '1'} />
         </div>
     );
 };
