@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import {
@@ -15,6 +15,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -23,6 +24,11 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+    ArticleImageBlockComponent,
+} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
    className?: string;
@@ -38,6 +44,19 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
     const article = useSelector(getArticleDetailsData);
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const error = useSelector(getArticleDetailsError);
+
+    const renderBlock = useCallback((block:ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return <ArticleCodeBlockComponent block={block} className={cls.block} />;
+        case ArticleBlockType.IMAGE:
+            return <ArticleImageBlockComponent block={block} className={cls.block} />;
+        case ArticleBlockType.TEXT:
+            return <ArticleTextBlockComponent block={block} className={cls.block} />;
+        default:
+            return null;
+        }
+    }, []);
 
     useEffect(() => {
         dispatch(fetchArticleById(id));
@@ -94,6 +113,7 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
                     />
                     <Text text={(article?.createdAt)} />
                 </div>
+                {article?.blocks.map(renderBlock)}
             </>
         );
     }
