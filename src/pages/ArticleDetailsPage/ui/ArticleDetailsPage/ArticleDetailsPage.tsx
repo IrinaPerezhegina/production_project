@@ -3,6 +3,8 @@ import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
+import { CommentList } from 'entities/Comment';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -23,6 +25,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <ArticleDetails id={id || '1'} />
+            <Text title={t('comments')} />
+            <CommentList />
         </div>
     );
 };
