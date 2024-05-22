@@ -11,7 +11,7 @@ interface ArticleDetailsPageProps {
    className?: string;
 }
 
-const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
+const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{id:string}>();
@@ -25,8 +25,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <ArticleDetails id={id || '1'} />
-            <Text title={t('comments')} />
-            <CommentList />
+            <Text
+                title={t('comments')}
+                className={cls.commentTitle}
+            />
+            <CommentList
+                isLoading
+                comments={[]}
+            />
         </div>
     );
 };

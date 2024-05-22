@@ -137,13 +137,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role":"ADMIN"
+      "role":"ADMIN",
+      "avatar": "https://cdn.fishki.net/upload/post/2019/10/28/3125789/depositphotos-hacker.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role":"USER"
+      "role":"USER",
+      "avatar": "https://rockwellautomation.scene7.com/is/image/rockwellautomation/at65-technology-watch-cybercrime.3840.jpg"
     }
   ],
   "profile": {
