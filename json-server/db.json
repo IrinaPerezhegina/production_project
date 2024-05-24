@@ -145,10 +145,12 @@
       "username": "user",
       "password": "123",
       "role":"USER",
-      "avatar": "https://rockwellautomation.scene7.com/is/image/rockwellautomation/at65-technology-watch-cybercrime.3840.jpg"
+      "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     }
   ],
-  "profile": {
+  "profile": [
+    {
+    "id":"1",
     "first": "Irina",
     "lastname": "Perezhegina",
     "age": 34,
@@ -157,5 +159,17 @@
     "city": "Tyumen",
     "username": "admin",
     "avatar": "http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
+  },
+  {
+    "id":"2",
+    "first": "Den",
+    "lastname": "Petrov",
+    "age": 25,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moskow",
+    "username": "user",
+    "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
   }
+]
 }

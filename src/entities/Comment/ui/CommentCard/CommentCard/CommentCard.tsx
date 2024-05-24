@@ -3,6 +3,8 @@ import { memo } from 'react';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../../model/types/comment';
 
@@ -46,7 +48,8 @@ export const CommentCard = memo((props:CommentCardProps) => {
     }
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <div
+            <AppLink
+                to={`${RoutePath.profile}/${comment.user.id}`}
                 className={cls.header}
             >
                 {comment.user.avatar ? (
@@ -59,7 +62,7 @@ export const CommentCard = memo((props:CommentCardProps) => {
                     className={cls.username}
                     title={comment.user.username}
                 />
-            </div>
+            </AppLink>
             <Text
                 className={cls.text}
                 text={comment.text}

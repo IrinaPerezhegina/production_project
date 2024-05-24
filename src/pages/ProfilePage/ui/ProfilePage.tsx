@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/ClassNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -22,6 +22,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers:ReducersList = {
@@ -40,7 +42,7 @@ export const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
-
+    const { id } = useParams<{id:string}>();
     const validateErrorsTranslate = {
         [ValidateProfileErrors.SERVER_ERROR]: t('server error when saving'),
         [ValidateProfileErrors.INCORRECT_AGE]: t('incorrect age'),
@@ -49,11 +51,11 @@ export const ProfilePage = memo(({ className }:ProfilePageProps) => {
         [ValidateProfileErrors.INCORRECT_USER_DATA]: t('first and last name are required'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));
