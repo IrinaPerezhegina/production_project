@@ -9,6 +9,7 @@ interface AddCommentFormProps {
 
 export const AddCommentForm = memo((props:AddCommentFormProps) => {
     const { className } = props;
+   
     const { t } = useTranslation();
 
     return (
