@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AddCommentForm } from './AddCommentForm';
+import AddCommentForm from './AddCommentForm';
 
 export default {
     title: 'features/AddCommentForm',

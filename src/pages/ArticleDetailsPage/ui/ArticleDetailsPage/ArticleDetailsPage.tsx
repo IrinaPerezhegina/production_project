@@ -14,6 +14,7 @@ import {
     useInitialEffect,
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/addCommentForm';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -56,6 +57,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id || '1'} />
+                <AddCommentForm />
                 <Text
                     title={t('comments')}
                     className={cls.commentTitle}
