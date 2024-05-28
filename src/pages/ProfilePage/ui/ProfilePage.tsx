@@ -34,7 +34,7 @@ interface ProfilePageProps {
 className?: string;
 }
 
-export const ProfilePage = memo(({ className }:ProfilePageProps) => {
+const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
@@ -90,7 +90,7 @@ export const ProfilePage = memo(({ className }:ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (

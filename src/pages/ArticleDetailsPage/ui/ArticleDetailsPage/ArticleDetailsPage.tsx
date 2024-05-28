@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -37,7 +37,7 @@ interface ArticleDetailsPageProps {
 const reducers:ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer,
 };
-const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPageProps) => {
+const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{id:string}>();
@@ -53,7 +53,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    if (!id && __PROJECT__ !== 'storybook') {
+    if (!id) {
         return (
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 { t('the article was not found')}
@@ -61,7 +61,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
         );
     }
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id || '1'} />
                 <AddCommentForm
@@ -78,6 +78,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
             </div>
         </DynamicModuleLoader>
     );
-};
+});
 
-export default memo(ArticleDetailsPage);
+export default ArticleDetailsPage;
