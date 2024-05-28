@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -117,19 +119,49 @@
       "id": "1",
       "text": "some comment",
       "articleId": "1",
-      "userId":"1"
+      "userId": "1"
     },
     {
       "id": "2",
       "text": "new comment",
       "articleId": "1",
-      "userId":"2"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "new comment",
       "articleId": "1",
-      "userId":"2"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aaa",
+      "id": "P7hbwpR"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello",
+      "id": "oZsfC4g"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello",
+      "id": "s72EXFV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Irina,hello",
+      "id": "b5vaL0Z"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello,user",
+      "id": "X1Lro6Y"
     }
   ],
   "users": [
@@ -137,39 +169,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role":"ADMIN",
+      "role": "ADMIN",
       "avatar": "https://cdn.fishki.net/upload/post/2019/10/28/3125789/depositphotos-hacker.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role":"USER",
+      "role": "USER",
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     }
   ],
   "profile": [
     {
-    "id":"1",
-    "first": "Irina",
-    "lastname": "Perezhegina",
-    "age": 34,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Tyumen",
-    "username": "admin",
-    "avatar": "http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
-  },
-  {
-    "id":"2",
-    "first": "Den",
-    "lastname": "Petrov",
-    "age": 25,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moskow",
-    "username": "user",
-    "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
-  }
-]
+      "id": "1",
+      "first": "Irina",
+      "lastname": "Perezhegina",
+      "age": 34,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Tyumen",
+      "username": "admin",
+      "avatar": "http://kartinkof.club/uploads/posts/2022-03/1648644352_13-kartinkof-club-p-smeshnie-kartinki-khaski-13.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Den",
+      "lastname": "Petrov",
+      "age": 25,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moskow",
+      "username": "user",
+      "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
+    }
+  ]
 }

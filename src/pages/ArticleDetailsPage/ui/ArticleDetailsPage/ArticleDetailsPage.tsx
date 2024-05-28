@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -27,6 +27,9 @@ import {
 
     getArticleCommentsIsLoading,
 } from '../../model/selectors/comments/comments';
+import {
+    addCommentForArticle,
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
    className?: string;
@@ -41,6 +44,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useAppDispatch();
+
+    const onSendComment = useCallback((text:string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -57,7 +64,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props:ArticleDetailsPag
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id || '1'} />
-                <AddCommentForm />
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                />
                 <Text
                     title={t('comments')}
                     className={cls.commentTitle}

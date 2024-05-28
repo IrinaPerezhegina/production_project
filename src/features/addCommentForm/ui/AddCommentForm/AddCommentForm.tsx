@@ -9,20 +9,20 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment';
+
 import {
     addCommentFormActions,
     addCommentFormReducer,
 } from '../../model/slice/addCommentFormSlice';
 import {
-
     getAddCommentFormError,
     getAddCommentFormText,
 } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
    className?: string;
+   onSendComment:(text:string)=>void
 }
 
 const reducers:ReducersList = {
@@ -30,20 +30,23 @@ const reducers:ReducersList = {
 };
 
 const AddCommentForm = memo((props:AddCommentFormProps) => {
-    const { className } = props;
+    const { className, onSendComment } = props;
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
     console.log(error);
 
     const { t } = useTranslation('article');
+
     const onCommentTextChange = useCallback((value:string) => {
         dispatch(addCommentFormActions.setText(value));
     }, [dispatch]);
 
-    const onSendComment = useCallback(() => {
-        dispatch(sendComment());
-    }, [dispatch]);
+    const onSendHandler = useCallback(() => {
+        onSendComment(text || '');
+        onCommentTextChange('');
+    }, [onCommentTextChange, text, onSendComment]);
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.addCommentForm, {}, [className])}>
@@ -55,7 +58,7 @@ const AddCommentForm = memo((props:AddCommentFormProps) => {
                 />
                 <Button
                     theme={ButtonTheme.OUTLINE}
-                    onClick={onSendComment}
+                    onClick={onSendHandler}
                 >
                     {t('send')}
                 </Button>
