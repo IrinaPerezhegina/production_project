@@ -162,6 +162,12 @@
       "userId": "2",
       "text": "hello,user",
       "id": "X1Lro6Y"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "WZ37I9C"
     }
   ],
   "users": [
@@ -198,7 +204,7 @@
       "lastname": "Petrov",
       "age": 25,
       "currency": "RUB",
-      "country": "Russia",
+      "country": "Belarus",
       "city": "Moskow",
       "username": "user",
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
