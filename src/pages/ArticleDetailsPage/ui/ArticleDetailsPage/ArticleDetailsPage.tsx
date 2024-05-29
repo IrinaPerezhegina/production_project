@@ -60,6 +60,7 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
             </div>
         );
     }
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
