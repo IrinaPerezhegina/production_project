@@ -53,7 +53,7 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    if (!id) {
+    if (!id && __PROJECT__ !== 'storybook') {
         return (
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 { t('the article was not found')}
