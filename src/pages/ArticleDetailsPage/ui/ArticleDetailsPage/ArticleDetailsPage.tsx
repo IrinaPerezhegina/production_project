@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -15,6 +15,8 @@ import {
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -44,6 +46,7 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const onSendComment = useCallback((text:string) => {
         dispatch(addCommentForArticle(text));
@@ -52,6 +55,10 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     });
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     if (!id && __PROJECT__ !== 'storybook') {
         return (
@@ -64,6 +71,9 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('back to the list')}
+                </Button>
                 <ArticleDetails id={id || '1'} />
                 <AddCommentForm
                     onSendComment={onSendComment}
