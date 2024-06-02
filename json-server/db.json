@@ -168,6 +168,24 @@
       "userId": "2",
       "text": "hello world",
       "id": "WZ37I9C"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "vghvgjh",
+      "id": "_SOZCVr"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "bb",
+      "id": "BjXH3Uo"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": " nm,",
+      "id": "fV_GiiO"
     }
   ],
   "users": [
@@ -192,7 +210,7 @@
       "first": "Irina",
       "lastname": "Perezhegina",
       "age": 34,
-      "currency": "RUB",
+      "currency": "EUR",
       "country": "Russia",
       "city": "Tyumen",
       "username": "admin",
