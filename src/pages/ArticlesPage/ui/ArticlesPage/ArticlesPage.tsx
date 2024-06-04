@@ -32,6 +32,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     useInitialEffect(() => {
         dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
     });
 
     const onChangeView = useCallback((view:ArticleView) => {
