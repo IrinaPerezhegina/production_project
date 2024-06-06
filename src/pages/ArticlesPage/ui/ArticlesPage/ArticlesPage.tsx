@@ -10,6 +10,7 @@ import { Page } from 'shared/ui/Page/Page';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
+    getArticlesPageNum,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
@@ -30,6 +31,13 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     console.log(error);
+    const page = useSelector(getArticlesPageNum);
+    const onLoadNextPart = useCallback(() => {
+        dispatch(articlesPageActions.setPage(page + 1));
+        dispatch(fetchArticlesList({
+            page: page + 1,
+        }));
+    }, [dispatch, page]);
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState());
@@ -44,7 +52,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.articlesPage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.articlesPage, {}, [className])}
+            >
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
                     isLoading={isLoading}
