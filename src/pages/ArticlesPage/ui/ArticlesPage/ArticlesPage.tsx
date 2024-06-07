@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import {
     getArticlesPageError,
+    getArticlesPageHasMore,
     getArticlesPageIsLoading,
     getArticlesPageNum,
     getArticlesPageView,
@@ -30,14 +31,18 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const hasMore = useSelector(getArticlesPageHasMore);
+
     console.log(error);
     const page = useSelector(getArticlesPageNum);
     const onLoadNextPart = useCallback(() => {
-        dispatch(articlesPageActions.setPage(page + 1));
-        dispatch(fetchArticlesList({
-            page: page + 1,
-        }));
-    }, [dispatch, page]);
+        if (hasMore && !isLoading) {
+            dispatch(articlesPageActions.setPage(page + 1));
+            dispatch(fetchArticlesList({
+                page: page + 1,
+            }));
+        }
+    }, [dispatch, page, hasMore, isLoading]);
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState());
