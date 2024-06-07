@@ -9,14 +9,13 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import {
     getArticlesPageError,
-    getArticlesPageHasMore,
     getArticlesPageIsLoading,
-    getArticlesPageNum,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
    className?: string;
@@ -31,18 +30,13 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
-    const hasMore = useSelector(getArticlesPageHasMore);
-
     console.log(error);
-    const page = useSelector(getArticlesPageNum);
+
     const onLoadNextPart = useCallback(() => {
-        if (hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticlesList({
-                page: page + 1,
-            }));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchNextArticlesPage());
         }
-    }, [dispatch, page, hasMore, isLoading]);
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState());
