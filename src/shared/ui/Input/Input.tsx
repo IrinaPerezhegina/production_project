@@ -1,25 +1,23 @@
 import { classNames, Mods } from 'shared/lib/ClassNames/classNames';
-
 import React, {
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-
 import cls from './Input.module.scss';
 
-type HTMLInputProps =Omit<InputHTMLAttributes<HTMLInputElement>, 'value'| 'onChange' |'readOnly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
-className?: string;
-value?:string|number;
-onChange?:(value:string)=>void;
-autofocus?:boolean;
-readonly?:boolean
+    className?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
-export const Input = memo((props:InputProps) => {
+export const Input = memo((props: InputProps) => {
     const {
         className,
-        value,
+        value = '',
         onChange,
         type = 'text',
         placeholder,
@@ -27,34 +25,37 @@ export const Input = memo((props:InputProps) => {
         readonly,
         ...otherProps
     } = props;
-    const [isFocus, setIsFocus] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
     const ref = useRef<HTMLInputElement>(null);
+    const [isFocused, setIsFocused] = useState(false);
+    const [caretPosition, setCaretPosition] = useState(0);
 
-    const isCaretVisible = isFocus && !readonly;
+    const isCaretVisible = isFocused && !readonly;
+
     useEffect(() => {
         if (autofocus) {
-            setIsFocus(true);
+            setIsFocused(true);
             ref.current?.focus();
         }
     }, [autofocus]);
 
-    const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-        setCaretPosition(e.target.value.length);
-    };
-    const onBlur = () => {
-        setIsFocus(false);
-    };
-    const onFocus = () => {
-        setIsFocus(true);
+        setCaretPosition?.(e.target.value.length);
     };
 
-    const onSelect = (e:any) => {
+    const onBlur = () => {
+        setIsFocused(false);
+    };
+
+    const onFocus = () => {
+        setIsFocused(true);
+    };
+
+    const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
     };
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.readonly]: readonly,
     };
 
@@ -85,8 +86,6 @@ export const Input = memo((props:InputProps) => {
                     />
                 )}
             </div>
-
         </div>
-
     );
 });

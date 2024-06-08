@@ -469,7 +469,6 @@
       ]
     }
   ],
-
   "comments": [
     {
       "id": "1",
@@ -560,6 +559,24 @@
       "userId": "1",
       "text": "kotlin",
       "id": "oV8lhN-"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "ssda",
+      "id": "VEXhPnM"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "d",
+      "id": "1Vb2VWG"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "dfdf",
+      "id": "KPIZodX"
     }
   ],
   "users": [

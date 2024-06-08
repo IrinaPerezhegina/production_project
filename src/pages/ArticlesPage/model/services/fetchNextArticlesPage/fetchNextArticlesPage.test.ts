@@ -40,4 +40,22 @@ describe('fetchNextArticlesPage.test', () => {
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalledWith({ page: 3 });
     });
+
+    test('isLoading', async () => {
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+            articlesPage: {
+                page: 2,
+                ids: [],
+                entities: {},
+                limit: 5,
+                isLoading: true,
+                hasMore: false,
+            },
+        });
+
+        await thunk.callThunk();
+
+        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(fetchArticlesList).not.toHaveBeenCalledWith({ page: 3 });
+    });
 });
