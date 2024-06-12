@@ -7,6 +7,7 @@ export {
     ArticleBlockType,
     ArticleType,
     ArticleView,
+    ArticleSortField,
 } from './model/types/article';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';

@@ -8,5 +8,7 @@
   "enter the comment text": "Введите текст комментария",
   "send": "Отправить",
   "read more": "Читать далее...",
-  "back to the list": "Назад к списку"
+  "back to the list": "Назад к списку",
+  "sort by": "Сортировать ПО",
+  "search": "Поиск"
 }
