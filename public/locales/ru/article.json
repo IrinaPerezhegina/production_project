@@ -10,5 +10,11 @@
   "read more": "Читать далее...",
   "back to the list": "Назад к списку",
   "sort by": "Сортировать ПО",
-  "search": "Поиск"
+  "search": "Поиск",
+  "ascending": "возрастанию",
+  "descending": "убыванию",
+  "by": "по",
+  "date of creation": "дате создания",
+  "name": "названию",
+  "views": "просмотрам"
 }

@@ -11,5 +11,11 @@
   "read more": "Read more...",
   "back to the list": "Back to the list",
   "sort by": "Sort BY",
-  "search": "Search"
+  "search": "Search",
+  "ascending": "ascending",
+  "descending": "descending",
+  "by": "by",
+  "date of creation": "date of creation",
+  "name": "name",
+  "views": "views"
 }
