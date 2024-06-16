@@ -31,7 +31,7 @@ export const getArticlesPageInited = (
 
 export const getArticlesPageOrder = (
     state:StateSchema,
-) => state.articlesPage?.order ?? 'acs';
+) => state.articlesPage?.order ?? 'asc';
 
 export const getArticlesPageSort = (
     state:StateSchema,
