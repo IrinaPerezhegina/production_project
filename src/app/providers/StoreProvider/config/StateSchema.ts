@@ -15,7 +15,7 @@ import { UISchema } from 'features/UI';
 export interface StateSchema{
 counter:CounterSchema;
 user:UserSchema;
-ui:UISchema
+ui:UISchema;
 
 // Асинхронные редюсеры
 loginForm?:LoginSchema;

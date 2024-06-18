@@ -8,9 +8,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
+import { useSearchParams } from 'react-router-dom';
 import {
     getArticlesPageError,
-
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
@@ -32,6 +32,8 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const [searchParams] = useSearchParams();
+
     console.log(error);
 
     const onLoadNextPart = useCallback(() => {
@@ -41,7 +43,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     return (
