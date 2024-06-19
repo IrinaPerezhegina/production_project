@@ -1,3 +1,5 @@
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
+
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

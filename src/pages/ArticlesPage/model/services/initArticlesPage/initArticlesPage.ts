@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ArticleSortField, ArticleType } from 'entities/Article';
+import { SortOrder } from 'shared/types';
 import {
     getArticlesPageInited,
 } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
-import { ArticleSortField } from 'entities/Article';
-import { SortOrder } from 'shared/types';
 
 export const initArticlesPage = createAsyncThunk<
 void,
@@ -19,23 +19,28 @@ void,
          } = thunkAPI;
          const inited = getArticlesPageInited(getState());
          if (!inited) {
-            const orderFromUrl=URLSearchParams.get('order') as SortOrder
-            const sortFromUrl=URLSearchParams.get('sort') as ArticleSortField
-            const searchFromUrl=URLSearchParams.get('search') 
-           
-if (orderFromUrl) {
-   dispatch(articlesPageActions.setOrder(orderFromUrl))
-}
+             const orderFromUrl = URLSearchParams.get('order') as SortOrder;
+             const sortFromUrl = URLSearchParams.get('sort') as ArticleSortField;
+             const searchFromUrl = URLSearchParams.get('search');
+             const typeFromUrl = URLSearchParams.get('type') as ArticleType;
 
-if (sortFromUrl) {
-    dispatch(articlesPageActions.setSort(sortFromUrl))
-}
+             if (orderFromUrl) {
+                 dispatch(articlesPageActions.setOrder(orderFromUrl));
+             }
 
-if (searchFromUrl) {
-    dispatch(articlesPageActions.setSearch(searchFromUrl))
-}
+             if (sortFromUrl) {
+                 dispatch(articlesPageActions.setSort(sortFromUrl));
+             }
 
-            dispatch(articlesPageActions.initState());
+             if (searchFromUrl) {
+                 dispatch(articlesPageActions.setSearch(searchFromUrl));
+             }
+
+             if (typeFromUrl) {
+                 dispatch(articlesPageActions.setType(typeFromUrl));
+             }
+
+             dispatch(articlesPageActions.initState());
              dispatch(fetchArticlesList({}));
          }
      },
