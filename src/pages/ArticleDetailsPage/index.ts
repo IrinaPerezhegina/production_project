@@ -1,4 +1,8 @@
 export {
+    ArticleDetailsRecommendationsSchema,
+} from './model/types/ArticleDetailsRecommendationsSchema';
+
+export {
     ArticleDetailsCommentsSchema,
 } from './model/types/ArticleDetailsCommentsSchema';
 
