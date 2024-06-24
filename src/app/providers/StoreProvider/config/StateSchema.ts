@@ -8,8 +8,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import {
-    ArticleDetailsCommentsSchema,
-    ArticleDetailsRecommendationsSchema,
+    ArticleDetailsPageSchema,
 } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
@@ -24,10 +23,9 @@ ui:UISchema;
 loginForm?:LoginSchema;
 profile?:ProfileSchema;
 articleDetails?:articleDetailsSchema;
-articleDetailsComments?:ArticleDetailsCommentsSchema;
-articleDetailsRecommendations?:ArticleDetailsRecommendationsSchema;
 addCommentForm?:AddCommentFormSchema;
 articlesPage?:ArticlesPageSchema;
+articleDetailsPage?:ArticleDetailsPageSchema;
 
 }
 

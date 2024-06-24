@@ -23,7 +23,6 @@ import {
     getArticleRecommendationsIsLoading,
 } from '../../model/selectors/recommendations/recommendations';
 import {
-    articleDetailsPageRecommendationsReducer,
     getArticleRecommendations,
 } from '../../model/slices/articleDetailsPageRecommentationsSlice';
 import {
@@ -31,7 +30,6 @@ import {
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsPage.module.scss';
 import {
-    articleDetailsCommentsReducer,
     getArticleComments,
 } from '../../model/slices/articleDetailsCommentsSlice';
 import {
@@ -44,13 +42,13 @@ import {
 import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices';
 
 interface ArticleDetailsPageProps {
    className?: string;
 }
 const reducers:ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const { className } = props;
@@ -100,6 +98,7 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
                     className={cls.commentTitle}
                 />
                 <ArticleList
+                    target="_blank"
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
                     className={cls.recommendations}
