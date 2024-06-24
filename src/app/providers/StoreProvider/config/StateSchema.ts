@@ -25,7 +25,7 @@ loginForm?:LoginSchema;
 profile?:ProfileSchema;
 articleDetails?:articleDetailsSchema;
 articleDetailsComments?:ArticleDetailsCommentsSchema;
-ArticleDetailsRecommendations?:ArticleDetailsRecommendationsSchema;
+articleDetailsRecommendations?:ArticleDetailsRecommendationsSchema;
 addCommentForm?:AddCommentFormSchema;
 articlesPage?:ArticlesPageSchema;
 
