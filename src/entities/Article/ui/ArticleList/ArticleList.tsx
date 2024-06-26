@@ -25,7 +25,7 @@ export const ArticleList = memo((props:ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.SMALL,
-        target
+        target,
     } = props;
     const { t } = useTranslation('article');
     const renderArticle = (article:Article) => (

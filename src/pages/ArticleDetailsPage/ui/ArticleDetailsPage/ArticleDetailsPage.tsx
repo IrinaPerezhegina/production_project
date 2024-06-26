@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -15,8 +15,6 @@ import {
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { Page } from 'widgets/Page/Page';
 import {
     getArticleRecommendationsError,
@@ -43,6 +41,7 @@ import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
    className?: string;
@@ -60,7 +59,6 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
     const recommendationsError = useSelector(getArticleRecommendationsError);
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
 
     const onSendComment = useCallback((text:string) => {
         dispatch(addCommentForArticle(text));
@@ -70,10 +68,6 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticleRecommendations());
     });
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     if (!id && __PROJECT__ !== 'storybook') {
         return (
@@ -87,11 +81,8 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('back to the list')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id || '1'} />
-
                 <Text
                     size={TextSize.L}
                     title={t('we recommend it')}
