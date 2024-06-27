@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { getArticleDetailsData } from 'entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article.ts/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
@@ -17,10 +18,14 @@ export const ArticleDetailsPageHeader = memo((props:ArticleDetailsPageHeaderProp
     const { t } = useTranslation('article');
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
-
+    const article = useSelector(getArticleDetailsData);
     const onBackToList = useCallback(() => {
         navigate(RoutePath.articles);
     }, [navigate]);
+
+    const onEditArticle = useCallback(() => {
+        navigate(`${RoutePath.articles}/${article?.id}/edit`);
+    }, [navigate, article?.id]);
 
     return (
         <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
@@ -34,7 +39,7 @@ export const ArticleDetailsPageHeader = memo((props:ArticleDetailsPageHeaderProp
                 <Button
                     className={cls.editBtn}
                     theme={ButtonTheme.OUTLINE}
-                    onClick={onBackToList}
+                    onClick={onEditArticle}
                 >
                     {t('edit')}
                 </Button>
