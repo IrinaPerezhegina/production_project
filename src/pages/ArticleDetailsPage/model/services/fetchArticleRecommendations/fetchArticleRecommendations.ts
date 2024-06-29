@@ -16,9 +16,11 @@ Article[],
                      _limit: 4,
                  },
              });
+
              if (!response.data) {
                  throw new Error();
              }
+
              return response.data;
          } catch (e) {
              return rejectWithValue('error');
