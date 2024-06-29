@@ -12,6 +12,7 @@ Comment[],
          if (!articleId) {
              return rejectWithValue('error');
          }
+
          try {
              const response = await extra.api.get<Comment[]>('/comments/', {
                  params: {
@@ -19,6 +20,7 @@ Comment[],
                      _expand: 'user',
                  },
              });
+
              if (!response.data) {
                  throw new Error();
              }
