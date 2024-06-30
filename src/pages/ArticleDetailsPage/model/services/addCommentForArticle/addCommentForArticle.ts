@@ -19,9 +19,11 @@ ThunkConfig<string>
         } = thunkAPI;
         const userData = getUserAuthData(getState());
         const article = getArticleDetailsData(getState());
+
         if (!userData || !text || !article) {
             return rejectWithValue('no data');
         }
+
         try {
             const response = await extra.api.post<Comment>('/comments', {
                 articleId: article.id,
