@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'irina-perezh-plugin',
 
     ],
     rules: {
@@ -57,6 +58,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'irina-perezh-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
