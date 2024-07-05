@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof HStack> = (args) => <HStack {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const Row = Template.bind({});
+Row.args = {
 
 };
