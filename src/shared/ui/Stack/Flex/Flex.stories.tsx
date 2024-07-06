@@ -39,7 +39,7 @@ Column.args = {
 export const RowGap4 = Template.bind({});
 RowGap4.args = {
     gap: '4',
-    direction: 'column',
+    direction: 'row',
     children: (
         <>
             <div>first</div>
@@ -53,7 +53,7 @@ RowGap4.args = {
 export const RowGap8 = Template.bind({});
 RowGap8.args = {
     gap: '8',
-    direction: 'column',
+    direction: 'row',
     children: (
         <>
             <div>first</div>
@@ -67,7 +67,7 @@ RowGap8.args = {
 export const RowGap16 = Template.bind({});
 RowGap16.args = {
     gap: '16',
-    direction: 'column',
+    direction: 'row',
     children: (
         <>
             <div>first</div>
@@ -80,6 +80,34 @@ RowGap16.args = {
 
 export const RowGap32 = Template.bind({});
 RowGap32.args = {
+    gap: '32',
+    direction: 'row',
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
+};
+
+export const ColumnGap8 = Template.bind({});
+ColumnGap8.args = {
+    gap: '8',
+    direction: 'column',
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
+};
+
+export const ColumnGap32 = Template.bind({});
+ColumnGap32.args = {
     gap: '32',
     direction: 'column',
     children: (
