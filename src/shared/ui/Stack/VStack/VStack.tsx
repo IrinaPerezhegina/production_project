@@ -1,17 +1,7 @@
-import { classNames } from 'shared/lib/ClassNames/classNames';
-import { memo } from 'react';
-import cls from './VStack.module.scss';
+import { Flex, FlexProps } from '../Flex/Flex';
 
-interface VStackProps {
-   className?: string;
-}
+type VStackProps =Omit<FlexProps, 'direction'>
 
-export const VStack = memo((props:VStackProps) => {
-    const { className } = props;
-
-    return (
-        <div className={classNames(cls.vStack, {}, [className])}>
-            /
-        </div>
-    );
-});
+export const VStack = (props:VStackProps) => (
+    <Flex direction="column" {...props} />
+);
