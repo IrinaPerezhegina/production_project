@@ -16,6 +16,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import {
     getArticleRecommendationsError,
     getArticleRecommendationsIsLoading,
@@ -81,31 +82,33 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id || '1'} />
-                <Text
-                    size={TextSize.L}
-                    title={t('we recommend it')}
-                    className={cls.commentTitle}
-                />
-                <ArticleList
-                    target="_blank"
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    className={cls.recommendations}
-                />
-                <Text
-                    title={t('comments')}
-                    className={cls.commentTitle}
-                />
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                />
+                <VStack gap="16" align="start" max>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id || '1'} />
+                    <Text
+                        size={TextSize.L}
+                        title={t('we recommend it')}
+                        className={cls.commentTitle}
+                    />
+                    <ArticleList
+                        target="_blank"
+                        articles={recommendations}
+                        isLoading={recommendationsIsLoading}
+                        className={cls.recommendations}
+                    />
+                    <Text
+                        title={t('comments')}
+                        className={cls.commentTitle}
+                    />
+                    <AddCommentForm
+                        onSendComment={onSendComment}
+                    />
 
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

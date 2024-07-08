@@ -15,6 +15,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -103,45 +104,48 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max className={cls.avatarWrapper}>
                     <Avatar
                         size={200}
                         src={article?.img}
                         className={cls.avatar}
                     />
-                </div>
-                <Text
-                    className={cls.title}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon
-                        Svg={EyeIcon}
-                        className={cls.icon}
-                    />
-
+                </HStack>
+                <VStack gap="4" max align="start">
                     <Text
-                        text={String(article?.views)}
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
                     />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon
-                        Svg={CalendarIcon}
-                        className={cls.icon}
-                    />
-                    <Text text={(article?.createdAt)} />
-                </div>
+                    <HStack gap="8" align="start" className={cls.articleInfo}>
+                        <Icon
+                            Svg={EyeIcon}
+                            className={cls.icon}
+                        />
+
+                        <Text
+                            text={String(article?.views)}
+                        />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon
+                            Svg={CalendarIcon}
+                            className={cls.icon}
+                        />
+                        <Text text={(article?.createdAt)} />
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
+
             </>
         );
     }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.articleDetails, {}, [className])}>
+            <VStack gap="16" className={classNames(cls.articleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

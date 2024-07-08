@@ -83,7 +83,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
         <VStack
             max
             align="start"
-            gap="8"
+            gap="16"
             className={classNames(cls.ProfileCard, mods, [className])}
         >
             {data?.avatar && (
