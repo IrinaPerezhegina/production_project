@@ -62,3 +62,19 @@ SizeL.args = {
     size: TextSize.L,
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'Title lorem lorem',
+    text: 'Description',
+    size: TextSize.M,
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeS = Template.bind({});
+SizeS.args = {
+    title: 'Title lorem lorem',
+    text: 'Description',
+    size: TextSize.S,
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
