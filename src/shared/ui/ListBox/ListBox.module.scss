@@ -2,9 +2,13 @@
     position: relative;
 }
 
-// .trigger{
-
-// }
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
 
 .options {
     background: var(--list-bg);
@@ -16,4 +20,16 @@
 
 .item {
     padding: 10px 20px;
+}
+
+.active {
+    background: var(--inverted-primary-color);
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.optionsTop {
+    bottom: 100%;
 }
