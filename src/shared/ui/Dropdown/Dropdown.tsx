@@ -1,27 +1,53 @@
 import {
     Menu,
 } from '@headlessui/react';
-// import cls from './Dropdown.module.scss';
+import { classNames } from 'shared/lib/ClassNames/classNames';
+import { Fragment } from 'react/jsx-runtime';
+import { ReactNode } from 'react';
+import cls from './Dropdown.module.scss';
 
-// interface DropdownProps {
-//    className?: string;
-// }
+export interface DropdownItem {
+    disabled?: boolean;
+    content:ReactNode;
+    onClick?:()=>void;
+    href?:string
+ }
 
-export function Dropdown() {
+interface DropdownProps {
+   className?: string;
+   items:DropdownItem[];
+   trigger:ReactNode;
+}
+
+export function Dropdown(props:DropdownProps) {
+    const
+        {
+            className,
+            trigger,
+            items,
+        } = props;
     return (
-        <Menu>
-            <Menu.Button />
-            <Menu.Items>
-                <Menu.Item>
-                    <a className="block data-[focus]:bg-blue-100" href="/settings">
-                        /
-                    </a>
-                </Menu.Item>
-                <Menu.Item>
-                    <a className="block data-[focus]:bg-blue-100" href="/support">
-                        /
-                    </a>
-                </Menu.Item>
+        <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
+            <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
+            <Menu.Items className={cls.menu}>
+                {items.map((item) => (
+                    <Menu.Item as={Fragment} disabled={item.disabled}>
+                        {({ active }) => (
+                            <button
+                                type="button"
+                                onClick={item.onClick}
+                                // href="/settings"
+                                className={classNames(
+                                    cls.item,
+                                    { [cls.active]: active },
+                                    [className],
+                                )}
+                            >
+                                {item.content}
+                            </button>
+                        )}
+                    </Menu.Item>
+                ))}
 
             </Menu.Items>
         </Menu>
