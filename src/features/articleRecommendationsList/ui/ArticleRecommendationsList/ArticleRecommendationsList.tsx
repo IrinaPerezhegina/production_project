@@ -28,11 +28,16 @@ const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommenda
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
+    const {
+        isLoading,
+        data: articles,
+        error,
+    } = useArticleRecommendationsList(3);
 
     if (isLoading || error) {
         return null;
     }
+
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>
             <Text
