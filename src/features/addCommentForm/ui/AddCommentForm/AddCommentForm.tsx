@@ -9,7 +9,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
 import { HStack } from 'shared/ui/Stack';
 import {
     addCommentFormActions,
@@ -35,6 +34,7 @@ const AddCommentForm = memo((props:AddCommentFormProps) => {
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
+
     console.log(error);
 
     const { t } = useTranslation('article');
@@ -49,7 +49,9 @@ const AddCommentForm = memo((props:AddCommentFormProps) => {
     }, [onCommentTextChange, text, onSendComment]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader
+            reducers={reducers}
+        >
             <HStack
                 justify="between"
                 max
