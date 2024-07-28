@@ -30,7 +30,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         className,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const {
         isLoading,
@@ -44,6 +44,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 
     return (
         <VStack
+            align="start"
             gap="8"
             className={classNames('', {}, [className])}
         >
