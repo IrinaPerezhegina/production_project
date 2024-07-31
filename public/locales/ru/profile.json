@@ -19,5 +19,6 @@
   "first and last name are required": "Имя и фамилия обязательны",
   "the data is not specified": "Данные не указаны",
   "the country is not specified": "Страна не указана",
-  "server error when saving": "Серверная ошибка при сохранении"
+  "server error when saving": "Серверная ошибка при сохранении",
+  "profile not found": "Профиль не найден"
 }

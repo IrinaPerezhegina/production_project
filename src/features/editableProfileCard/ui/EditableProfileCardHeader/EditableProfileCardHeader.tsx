@@ -1,29 +1,23 @@
-import { classNames } from 'shared/lib/ClassNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/ClassNames/classNames';
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useSelector } from 'react-redux';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slices/profileSlice';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import {
-    getProfileReadonly,
-} from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import {
-    getProfileData,
-} from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
-import { profileActions } from 'features/editableProfileCard/model/slices/profileSlice';
-import {
-    updateProfileData,
-} from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
-
-interface ProfilePageHeaderProps {
-className?: string;
+interface EditableProfileCardHeaderProps {
+   className?: string;
 }
 
-export const ProfilePageHeader = ({ className }:ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo((props:EditableProfileCardHeaderProps) => {
+    const { className } = props;
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const readonly = useSelector(getProfileReadonly);
@@ -77,4 +71,4 @@ export const ProfilePageHeader = ({ className }:ProfilePageHeaderProps) => {
             )}
         </HStack>
     );
-};
+});

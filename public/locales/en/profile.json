@@ -19,5 +19,6 @@
   "first and last name are required": "First and last name are required",
   "the data is not specified": "The data is not specified",
   "the country is not specified": "The country is not specified",
-  "server error when saving": "Server error when saving"
+  "server error when saving": "Server error when saving",
+  "profile not found": "Profile not found"
 }

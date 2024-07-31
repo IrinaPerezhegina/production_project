@@ -37,7 +37,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
                 className={classNames(cls.articlesPage, {}, [className])}
             >
                 <ArticlesPageFilters />
-                <ArticleInfiniteList />
+                <ArticleInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>
     );
