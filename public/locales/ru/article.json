@@ -23,5 +23,6 @@
   "science": "НАУКА",
   "no articles found": "Статьи не найдены",
   "we recommend it": "Рекомедуем",
-  "edit": "Редактировать"
+  "edit": "Редактировать",
+  "error loading the article": "Ошибка при загрузке статьи"
 }
