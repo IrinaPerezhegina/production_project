@@ -47,6 +47,7 @@ export function Dropdown(props:DropdownProps) {
                 {items.map((item) => {
                     const content = ({ active }:{active:boolean}) => (
                         <button
+                            key={item.href}
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
@@ -61,7 +62,11 @@ export function Dropdown(props:DropdownProps) {
                     );
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+                            <Menu.Item
+                                as={AppLink}
+                                to={item.href}
+                                disabled={item.disabled}
+                            >
                                 {content}
                             </Menu.Item>
                         );

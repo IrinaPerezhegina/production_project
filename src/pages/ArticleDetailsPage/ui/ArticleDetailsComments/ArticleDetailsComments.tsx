@@ -27,7 +27,7 @@ export const ArticleDetailsComments = memo((props:ArticleDetailsCommentsProps) =
         className,
         id,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);

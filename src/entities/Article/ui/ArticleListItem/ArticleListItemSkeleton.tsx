@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/ClassNames/classNames';
 import { memo } from 'react';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Page } from 'widgets/Page/Page';
 import cls from './ArticleListItem.module.scss';
 import {
 
@@ -21,7 +22,7 @@ export const ArticleListItemSkeleton = memo((props:ArticleListItemSkeletonProps)
 
     if (view === ArticleView.BIG) {
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+            <Page className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.header}>
                         <Skeleton height={30} width={30} border="50%" />
@@ -34,11 +35,11 @@ export const ArticleListItemSkeleton = memo((props:ArticleListItemSkeletonProps)
                         <Skeleton height={36} width={200} />
                     </div>
                 </Card>
-            </div>
+            </Page>
         );
     }
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+        <Page className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />
@@ -48,6 +49,6 @@ export const ArticleListItemSkeleton = memo((props:ArticleListItemSkeletonProps)
                 </div>
                 <Skeleton width={150} height={16} className={cls.title} />
             </Card>
-        </div>
+        </Page>
     );
 });

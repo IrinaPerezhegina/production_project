@@ -50,7 +50,7 @@ export const Page = memo((props: PageProps) => {
     return (
         <main
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(cls.page, {}, [className])}
             onScroll={onScroll}
             id={PAGE_ID}
         >

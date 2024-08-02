@@ -33,7 +33,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target,
         virtualized = true,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const isBig = view === ArticleView.BIG;
 
@@ -73,7 +73,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+                <Text size={TextSize.L} title={t('no articles found')} />
             </div>
         );
     }
