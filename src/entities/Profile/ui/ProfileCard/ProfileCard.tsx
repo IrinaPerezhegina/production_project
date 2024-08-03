@@ -44,6 +44,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
         onChangeCurrency,
         onChangeCountry,
     } = props;
+
     const { t } = useTranslation('profile');
 
     const mods:Mods = {
@@ -100,6 +101,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
                 placeholder={t('your name')}
                 onChange={onChangeFirstname}
                 readonly={readonly}
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 className={cls.input}
@@ -107,6 +109,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
                 placeholder={t('your last name')}
                 onChange={onChangeLastname}
                 readonly={readonly}
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 className={cls.input}
