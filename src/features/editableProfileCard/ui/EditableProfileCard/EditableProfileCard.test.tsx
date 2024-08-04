@@ -38,7 +38,9 @@ const options = {
 describe('features/EditableProfileCard', () => {
     test('режим рид онли должен переключаться', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
+
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        
         expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
     });
 
