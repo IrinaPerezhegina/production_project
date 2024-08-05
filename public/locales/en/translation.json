@@ -24,5 +24,7 @@
   "profile": "Profile",
   "article": "Articles",
   "PerezhIV": "PerezhIV",
-  "create an article": "Сreate an article"
+  "create an article": "Сreate an article",
+  "admin": "Admin",
+  "you do not have access to this page": "You do not have access to this page"
 }

@@ -26,7 +26,6 @@ const AppRouter = () => {
     return (
         <Routes>
             {Object.values(routeConfig).map(renderWithWrapper)}
-
         </Routes>
     );
 };

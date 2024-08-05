@@ -24,5 +24,7 @@
   "profile": "Профиль",
   "article": "Статьи",
   "PerezhIV": "PerezhIV",
-  "create an article": "Создать статью"
+  "create an article": "Создать статью",
+  "admin": "Администратор",
+  "you do not have access to this page": "У вас нету доступа к данной старнице"
 }
