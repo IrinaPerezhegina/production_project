@@ -40,7 +40,7 @@ describe('features/EditableProfileCard', () => {
         componentRender(<EditableProfileCard id="1" />, options);
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        
+
         expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
     });
 
