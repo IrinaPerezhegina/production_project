@@ -22,6 +22,7 @@ export function RequireAuth({ children, roles }:RequireAuthProps) {
             return hasRole;
         });
     }, [roles, userRoles]);
+    console.log(auth);
 
     if (!auth) {
         return <Navigate to={RoutePath.main} state={{ from: location }} replace />;

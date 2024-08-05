@@ -24,7 +24,11 @@ export const CommentCard = memo((props:CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.commentCard, {}, [className, cls.loading])}>
+            <VStack
+                gap="8"
+                max
+                className={classNames(cls.commentCard, {}, [className, cls.loading])}
+            >
                 <div
                     className={cls.header}
                 >
@@ -44,7 +48,7 @@ export const CommentCard = memo((props:CommentCardProps) => {
                     height={50}
                     className={cls.text}
                 />
-            </div>
+            </VStack>
         );
     }
     if (!comment) {

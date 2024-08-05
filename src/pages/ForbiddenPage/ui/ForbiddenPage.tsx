@@ -7,7 +7,7 @@ const ForbiddenPage = memo(() => {
 
     return (
         <Page>
-            {t('admin page')}
+            {t('you do not have access to this page')}
         </Page>
     );
 });
