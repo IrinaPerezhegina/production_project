@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/ClassNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -23,16 +22,7 @@ const reducers:ReducersList = {
 };
 const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
     const { id } = useParams<{id:string}>();
-
-    if (!id && __PROJECT__ !== 'storybook') {
-        return (
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
-                { t('the article was not found')}
-            </div>
-        );
-    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>

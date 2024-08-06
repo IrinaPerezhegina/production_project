@@ -54,7 +54,6 @@ export const ArticleDetailsComments = memo((props:ArticleDetailsCommentsProps) =
             <AddCommentForm
                 onSendComment={onSendComment}
             />
-
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}
