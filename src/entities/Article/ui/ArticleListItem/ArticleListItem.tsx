@@ -9,6 +9,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import { HStack } from 'shared/ui/Stack';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,
@@ -38,13 +39,13 @@ export const ArticleListItem = memo((props:ArticleListItemProps) => {
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
-        <>
+        <HStack gap="8">
             <Text
                 text={String(article.views)}
                 className={cls.views}
             />
             <Icon Svg={EyeIcon} />
-        </>
+        </HStack>
     );
 
     if (view === ArticleView.BIG) {
