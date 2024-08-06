@@ -667,6 +667,18 @@
       "userId": "1",
       "text": "vv",
       "id": "gx5DaWh"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "text": "ddd",
+      "id": "gKSHREJ"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "text": "ss",
+      "id": "tNwBP9M"
     }
   ],
   "users": [
@@ -674,21 +686,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://cdn.fishki.net/upload/post/2019/10/28/3125789/depositphotos-hacker.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     }
   ],
