@@ -27,6 +27,7 @@ export const CommentCard = memo((props:CommentCardProps) => {
             <VStack
                 gap="8"
                 max
+                align="start"
                 className={classNames(cls.commentCard, {}, [className, cls.loading])}
             >
                 <div
@@ -56,7 +57,7 @@ export const CommentCard = memo((props:CommentCardProps) => {
     }
 
     return (
-        <VStack gap="8" align="start" max className={classNames(cls.commentCard, {}, [className])}>
+        <VStack gap="8" max align="start" className={classNames(cls.commentCard, {}, [className])}>
             <AppLink
                 to={`${RoutePath.profile}/${comment.user.id}`}
                 className={cls.header}

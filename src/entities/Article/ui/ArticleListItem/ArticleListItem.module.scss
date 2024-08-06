@@ -29,8 +29,10 @@
 
     .footer {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         margin-top: 16px;
+        width: 100%;
     }
 
     .textBlock {
@@ -40,7 +42,6 @@
 }
 
 .SMALL {
-    width: 230px;
     transition: 0.2s;
     cursor: pointer;
 
