@@ -13,6 +13,7 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileErrors } from '../../model/consts/consts';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -22,7 +23,6 @@ import {
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../../model/slices/profileSlice';
-import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {

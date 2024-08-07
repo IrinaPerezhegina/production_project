@@ -1,11 +1,11 @@
 export { articleDetailsPageReducer } from './model/slices';
 
-export { ArticleDetailsPageSchema } from './model/types/index';
+export type{ ArticleDetailsPageSchema } from './model/types/index';
 
-export {
+export type{
     ArticleDetailsRecommendationsSchema,
 } from './model/types/ArticleDetailsRecommendationsSchema';
-export {
+export type{
     ArticleDetailsCommentsSchema,
 } from './model/types/ArticleDetailsCommentsSchema';
 export {

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
-import { ErrorPage } from 'widgets/ErrorPage/ui/ErrorPage';
+import { ErrorPage } from 'widgets/ErrorPage';
 
 interface ErrorBoundaryProps {
     children:ReactNode;

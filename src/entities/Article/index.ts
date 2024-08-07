@@ -12,7 +12,7 @@ export {
     ArticleType,
     ArticleView,
     ArticleSortField,
-} from './model/types/article';
+} from './model/consts/consts';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 

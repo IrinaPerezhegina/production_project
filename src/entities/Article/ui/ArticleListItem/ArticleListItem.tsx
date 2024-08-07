@@ -10,13 +10,13 @@ import { useTranslation } from 'react-i18next';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { HStack } from 'shared/ui/Stack';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,
-    ArticleBlockType,
     ArticleTextBlock,
-    ArticleView,
 } from '../../model/types/article';
+
 import {
     ArticleTextBlockComponent,
 } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
