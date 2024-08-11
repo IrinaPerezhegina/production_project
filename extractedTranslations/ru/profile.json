@@ -1,0 +1,21 @@
+{
+  "an error occurred while uploading the profile": "an error occurred while uploading the profile",
+  "cancel": "cancel",
+  "city": "city",
+  "edit": "edit",
+  "enter the link to the avatar": "enter the link to the avatar",
+  "enter username": "enter username",
+  "first and last name are required": "first and last name are required",
+  "incorrect age": "incorrect age",
+  "profile": "profile",
+  "save": "save",
+  "server error when saving": "server error when saving",
+  "specify the country": "specify the country",
+  "specify the currency": "specify the currency",
+  "the country is not specified": "the country is not specified",
+  "the data is not specified": "the data is not specified",
+  "try refreshing the page": "try refreshing the page",
+  "your age": "your age",
+  "your last name": "your last name",
+  "your name": "your name"
+}
