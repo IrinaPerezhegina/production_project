@@ -55,6 +55,7 @@ export const Navbar = memo(({ className }:NavbarProps) => {
             </header>
         );
     }
+
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Button

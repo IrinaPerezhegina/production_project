@@ -42,7 +42,6 @@ Normal.parameters = {
                 { ...notification, id: '5' },
                 { ...notification, id: '6' },
             ],
-
         },
     ],
 };
@@ -64,7 +63,6 @@ Daring.parameters = {
                 { ...notification, id: '5' },
                 { ...notification, id: '6' },
             ],
-
         },
     ],
 };
