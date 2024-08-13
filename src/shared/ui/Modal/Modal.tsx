@@ -1,8 +1,6 @@
 import { classNames, Mods } from 'shared/lib/ClassNames/classNames';
-import React, {
-    MutableRefObject,
-    ReactNode, useCallback, useEffect, useRef, useState,
-} from 'react';
+import { ReactNode } from 'react';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 import { Overlay } from '../OverLay/Overlay';
@@ -23,38 +21,12 @@ export const Modal = (props:ModalProps) => {
         children,
         lazy,
     } = props;
-    const [isMounted, setIsMounted] = useState(false);
-    const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
 
-    const onKeydown = useCallback((e:KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen]);
-
-    useEffect(() => () => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeydown);
-        }
-        clearTimeout(timerRef.current);
-        window.removeEventListener('keydown', onKeydown);
-    }, [isOpen, onKeydown]);
+    const {
+        close,
+        isClosing,
+        isMounted,
+    } = useModal({ onClose, animationDelay: ANIMATION_DELAY, isOpen });
 
     const mods:Mods = {
         [cls.opened]: isOpen,
@@ -66,11 +38,10 @@ export const Modal = (props:ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <Overlay onClick={closeHandler} />
+                <Overlay onClick={close} />
                 <div className={cls.content}>
                     {children}
                 </div>
-
             </div>
         </Portal>
     );
