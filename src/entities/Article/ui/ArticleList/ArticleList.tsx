@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { PAGE_ID } from '@/widgets/Page/Page';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

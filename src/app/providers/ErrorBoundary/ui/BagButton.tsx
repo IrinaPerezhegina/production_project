@@ -1,9 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 
-import { Button } from '@/shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@/shared/ui/Button/Button';
 
 // Компонент для текстирования
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars

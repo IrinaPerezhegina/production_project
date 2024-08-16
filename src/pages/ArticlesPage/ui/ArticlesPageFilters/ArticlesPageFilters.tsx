@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 import {
     ArticleSortField,
     ArticleSortSelector,
@@ -9,7 +10,6 @@ import {
     ArticleView,
     ArticleViewSelector,
 } from '@/entities/Article';
-import { useSelector } from 'react-redux';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

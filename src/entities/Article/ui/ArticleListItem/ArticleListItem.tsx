@@ -1,12 +1,12 @@
-import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { Text } from '@/shared/ui/Text/Text';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Card } from '@/shared/ui/Card/Card';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { HStack } from '@/shared/ui/Stack';

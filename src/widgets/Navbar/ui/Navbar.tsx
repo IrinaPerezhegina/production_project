@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
-import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { memo, useCallback, useState } from 'react';
-import { LoginModal } from '@/features/AuthByUsername';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { LoginModal } from '@/features/AuthByUsername';
 import {
     getUserAuthData,
 } from '@/entities/User';

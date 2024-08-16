@@ -1,7 +1,7 @@
 import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
-import { useParams } from 'react-router-dom';
 import {
     DynamicModuleLoader,
     ReducersList,

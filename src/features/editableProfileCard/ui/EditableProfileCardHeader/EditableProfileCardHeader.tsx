@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/ui/Stack';
