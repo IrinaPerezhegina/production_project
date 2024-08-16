@@ -36,6 +36,6 @@ export default ({ config }: {config: webpack.Configuration}) => {
         __API__: JSON.stringify('http://testapi.ru'),
         __PROJECT__: JSON.stringify('storybook'),
     }));
-
+    config.resolve!.alias = { '@': paths.src };
     return config;
 };

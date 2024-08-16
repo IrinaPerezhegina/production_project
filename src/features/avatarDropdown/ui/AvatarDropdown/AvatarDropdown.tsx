@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/ClassNames/classNames';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -7,11 +7,11 @@ import {
     isUserAdmin,
     isUserManager,
     userActions,
-} from 'entities/User';
-import { Dropdown } from 'shared/ui/Popups';
-import { RoutePath } from 'shared/config/routerConfig/routerConfig';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+} from '@/entities/User';
+import { Dropdown } from '@/shared/ui/Popups';
+import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {

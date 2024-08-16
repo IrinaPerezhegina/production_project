@@ -2,8 +2,8 @@ import {
     Listbox as HListBox,
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames } from 'shared/lib/ClassNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import { Button } from '../../../Button/Button';
 import { Text } from '../../../Text/Text';
