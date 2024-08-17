@@ -9,7 +9,9 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+     useAppDispatch
+     } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getLoginUsername,
 } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -21,7 +23,10 @@ import {
 } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import {
+     loginActions,
+      loginReducer
+     } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
