@@ -90,7 +90,11 @@ export const RatingCard = memo((props:RatingCardProps) => {
                     <VStack max gap="32">
 
                         {modalContent}
-                        <HStack max gap="16" justify="end">
+                        <HStack
+                            max
+                            gap="16"
+                            justify="end"
+                        >
                             <Button onClick={cancelHandler} theme={ButtonTheme.OUTLINE_RED}>
                                 {t('close')}
                             </Button>
