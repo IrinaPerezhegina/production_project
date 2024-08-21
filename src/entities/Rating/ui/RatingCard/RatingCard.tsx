@@ -85,10 +85,8 @@ export const RatingCard = memo((props:RatingCardProps) => {
                 <Modal
                     isOpen={isModalOpen}
                     lazy
-
                 >
                     <VStack max gap="32">
-
                         {modalContent}
                         <HStack
                             max
