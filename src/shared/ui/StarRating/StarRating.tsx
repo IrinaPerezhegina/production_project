@@ -8,7 +8,7 @@ interface StarRatingProps {
    className?: string;
    onSelected?:(starsCount:number)=>void;
    size?:number;
-selectedStars?:number;
+   selectedStars?:number;
 }
 
 const stars = [1, 2, 3, 4, 5];
