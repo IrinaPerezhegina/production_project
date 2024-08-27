@@ -11,6 +11,7 @@ interface ArticleRatingProps {
 export const ArticleRating = memo((props:ArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation('article');
+    console.log(articleId);
 
     return (
         <RatingCard
