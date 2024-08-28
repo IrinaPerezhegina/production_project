@@ -813,6 +813,34 @@
       "userId": "2",
       "rate": 4,
       "id": "5DUBU1K"
+    },
+    {
+      "articleId": "13",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "sss",
+      "id": "3n08Qa2"
+    },
+    {
+      "articleId": "3",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "good",
+      "id": "UYAW7lp"
+    },
+    {
+      "articleId": "17",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "оппп",
+      "id": "LlnehCC"
+    },
+    {
+      "articleId": "5",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "eee",
+      "id": "NsSMfFD"
     }
   ],
   "profile-ratings": [

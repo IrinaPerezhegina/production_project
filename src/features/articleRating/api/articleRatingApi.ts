@@ -1,7 +1,7 @@
 import { Rating } from '@/entities/Rating';
 import { rtkApi } from '@/shared/api/rtkApi';
 
-interface GetArticleRatingArg{
+export interface GetArticleRatingArg{
     userId:string;
     articleId:string;
 }

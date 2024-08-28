@@ -7,12 +7,12 @@ import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
-interface ArticleRatingProps {
+export interface ArticleRatingProps {
    className?: string;
    articleId:string;
 }
 
-export const ArticleRating = memo((props:ArticleRatingProps) => {
+const ArticleRating = memo((props:ArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation('article');
     const userData = useSelector(getUserAuthData);
@@ -68,3 +68,5 @@ export const ArticleRating = memo((props:ArticleRatingProps) => {
         />
     );
 });
+
+export default ArticleRating;

@@ -57,17 +57,20 @@ export const RatingCard = memo((props:RatingCardProps) => {
     }, [onCancel, starsCount]);
 
     const modalContent = (
-        <>
+        <VStack
+            max
+            gap="32"
+            align="start"
+        >
             <Text
                 title={feedbackTitle}
             />
             <Input value={feedback} onChange={setFeedback} placeholder={t('your feedback')} />
-        </>
+        </VStack>
 
     );
 
     return (
-
         <Card
             max
             className={classNames('', {}, [className])}
@@ -75,9 +78,10 @@ export const RatingCard = memo((props:RatingCardProps) => {
             <VStack
                 align="center"
                 gap="8"
+                max
             >
                 <Text
-                    title={title}
+                    title={starsCount ? t('Thanks for the assessment') : title}
                 />
                 <StarRating
                     selectedStars={starsCount}
@@ -113,7 +117,7 @@ export const RatingCard = memo((props:RatingCardProps) => {
                     isOpen={isModalOpen}
                     lazy
                 >
-                    <VStack gap="32" align="start">
+                    <VStack gap="32">
                         { modalContent}
                         <Button fullWidth onClick={acceptHandler} size={ButtonSize.L}>
                             {t('send')}
