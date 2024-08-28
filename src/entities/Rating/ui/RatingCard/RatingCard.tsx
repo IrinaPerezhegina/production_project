@@ -80,6 +80,7 @@ export const RatingCard = memo((props:RatingCardProps) => {
                     title={title}
                 />
                 <StarRating
+                    selectedStars={starsCount}
                     size={40}
                     onSelected={onSelectedStars}
                 />
