@@ -1,14 +1,11 @@
-/* eslint-disable i18next/no-literal-string */
-import {
-    memo, Suspense, useCallback,
-} from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutesProps, routeConfig } from '@/shared/config/routerConfig/routerConfig';
 import { PageLoader } from '@/widgets/PageLoader/PageLoader';
-import { RequireAuth } from './RequireAuth';
+import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { AppRoutesProps, routeConfig } from '@/shared/config/routerConfig/routerConfig';
 
 const AppRouter = () => {
-    const renderWithWrapper = useCallback((route:AppRoutesProps) => {
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const element = (
             <Suspense fallback={<PageLoader />}>
                 {route.element}
@@ -19,17 +16,12 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={
-                    route.authOnly
-                        ? (
-                            <RequireAuth roles={route.roles}>
-                                {element}
-                            </RequireAuth>
-                        ) : element
-                }
+                // eslint-disable-next-line max-len
+                element={route.authOnly ? <RequireAuth roles={route.roles}>{element}</RequireAuth> : element}
             />
         );
     }, []);
+
     return (
         <Routes>
             {Object.values(routeConfig).map(renderWithWrapper)}
