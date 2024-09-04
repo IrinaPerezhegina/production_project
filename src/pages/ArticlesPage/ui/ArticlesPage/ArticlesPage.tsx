@@ -5,7 +5,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import {
