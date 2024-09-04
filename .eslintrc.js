@@ -71,7 +71,13 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'irina-perezh-plugin/path-checker': ['error', { alias: '@' }],
-        'irina-perezh-plugin/public-api-imports': ['error', { alias: '@' }],
+        'irina-perezh-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
