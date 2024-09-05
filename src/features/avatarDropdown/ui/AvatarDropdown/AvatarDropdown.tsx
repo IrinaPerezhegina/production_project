@@ -9,10 +9,10 @@ import {
     userActions,
 } from '@/entities/User';
 import { Dropdown } from '@/shared/ui/Popups';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
    className?: string;
