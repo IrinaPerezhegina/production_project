@@ -1,7 +1,7 @@
-import React, { memo, Suspense, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
-import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { RequireAuth } from '../../router/ui/RequireAuth';
 import { routeConfig } from '../config/routerConfig';
 import { AppRoutesProps } from '@/shared/types/router';
 
@@ -17,8 +17,17 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                // eslint-disable-next-line max-len
-                element={route.authOnly ? <RequireAuth roles={route.roles}>{element}</RequireAuth> : element}
+                element={
+                    route.authOnly
+                        ? (
+                            <RequireAuth
+                                roles={route.roles}
+                            >
+                                {element}
+                            </RequireAuth>
+                        )
+                        : element
+                }
             />
         );
     }, []);

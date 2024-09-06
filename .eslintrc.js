@@ -78,6 +78,13 @@ module.exports = {
                 testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx'],
             },
         ],
+        'irina-perezh-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

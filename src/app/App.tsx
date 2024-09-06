@@ -2,10 +2,10 @@ import './styles/index.scss';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from '@/widgets/Navbar';
-import { AppRouter } from '@/app/providers/router';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
+import { AppRouter } from './providers/router';
 
 const App = () => {
     const dispatch = useDispatch();
