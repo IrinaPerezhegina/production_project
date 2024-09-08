@@ -231,6 +231,27 @@ Disabled.args = {
 
 
 ----
+## Сущности(entities)
+
+- [Article](/src/entities/Article/README.md)
+- [Comment](/src/entities/Comment/README.md)
+- [Counter](/src/entities/Counter/README.md)
+- [Country](/src/entities/Country/README.md)
+- [Currency](/src/entities/Currency/README.md)
+- [Notification](/src/entities/Notification/README.md)
+- [Profile](/src/entities/Profile/README.md)
+- [Rating](/src/entities/Rating/README.md)
+- [User](/src/entities/User/README.md)
+
 ## Фичи(features)
 
--
+- [addCommentForm](/src/features/addCommentForm/README.md)
+- [articleRating](/src/features/articleRating/README.md)
+- [articleRecommendationsList](/src/features/articleRecommendationsList/README.md)
+- [AuthByUsername](/src/features/AuthByUsername/README.md)
+- [avatarDropdown](/src/features/avatarDropdown/README.md)
+- [editableProfileCard](/src/features/editableProfileCard/README.md)
+- [LangSwitcher](/src/features/LangSwitcher/README.md)
+- [notificationButton](/src/features/notificationButton/README.md)
+- [ThemeSwitcher](/src/features/ThemeSwitcher/README.md)
+- [UI](/src/features/UI/README.md)
