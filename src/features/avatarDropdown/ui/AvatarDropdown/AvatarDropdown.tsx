@@ -9,7 +9,7 @@ import {
     userActions,
 } from '@/entities/User';
 import { Dropdown } from '@/shared/ui/Popups';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
 import { RoutePath } from '@/shared/const/router';

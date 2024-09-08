@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 
 // Компонент для текстирования
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
