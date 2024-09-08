@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -77,4 +76,5 @@ export const Navbar = memo(({ className }:NavbarProps) => {
         </header>
     );
 });
+
 export default Navbar;
