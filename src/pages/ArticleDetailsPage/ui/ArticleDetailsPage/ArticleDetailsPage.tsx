@@ -21,15 +21,16 @@ interface ArticleDetailsPageProps {
 const reducers:ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
-const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
+const ArticleDetailsPage = (props:ArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{id:string}>();
 
     if (!id) {
         return null;
     }
+
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <VStack gap="16" align="start" max>
                     <ArticleDetailsPageHeader />
@@ -41,6 +42,6 @@ const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
             </Page>
         </DynamicModuleLoader>
     );
-});
+};
 
-export default ArticleDetailsPage;
+export default memo(ArticleDetailsPage);

@@ -1,20 +1,25 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
-
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { Rating } from '@/entities/Rating';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
+    decorators: [withMock],
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+
+const rate:Rating = {
+    feedback: 'good',
+    rate: 3,
+};
 
 const article: Article = {
     id: '1',
@@ -23,11 +28,11 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    type: [ArticleType.IT],
     user: {
         id: '1',
-        username: 'Irina Per',
+        username: 'Ulbi tv',
     },
-    type: [ArticleType.IT],
     blocks: [
         {
             id: '1',
@@ -57,23 +62,32 @@ const article: Article = {
 };
 
 export const Normal = Template.bind({});
-Normal.args = { };
+Normal.args = {};
 Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
+    },
+    user: {
+        authData: { id: '1' },
     },
 })];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/articles?_limit=3`,
+            url: 'http://testapi.ru/article-ratings?userId=1',
             method: 'GET',
             status: 200,
             response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' },
+                { ...rate, rate: 4 },
             ],
+        },
+        {
+            url: 'http://testapi.ru/articles?_limit=3',
+            method: 'GET',
+            status: 200,
+            response:
+                article,
+
         },
     ],
 };
