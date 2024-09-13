@@ -30,6 +30,7 @@ ThunkConfig<string>
                 userId: userData.id,
                 text,
             });
+
             if (!response.data) {
                 throw new Error();
             }
