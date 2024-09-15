@@ -9,6 +9,7 @@ Comment[],
      'articleDetails/fetchCommentsByArticleId',
      async (articleId, thunkAPI) => {
          const { extra, rejectWithValue } = thunkAPI;
+
          if (!articleId) {
              return rejectWithValue('error');
          }
@@ -25,6 +26,7 @@ Comment[],
                  throw new Error();
              }
              return response.data;
+             
          } catch (e) {
              return rejectWithValue('error');
          }
