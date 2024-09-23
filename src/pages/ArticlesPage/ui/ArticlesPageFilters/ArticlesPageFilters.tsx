@@ -4,11 +4,8 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
 import {
     ArticleSortField,
-    ArticleSortSelector,
     ArticleType,
-    ArticleTypeTabs,
     ArticleView,
-    ArticleViewSelector,
 } from '@/entities/Article';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
@@ -25,6 +22,9 @@ import {
     getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 interface ArticlesPageFiltersProps {
    className?: string;

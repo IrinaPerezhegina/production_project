@@ -22,8 +22,10 @@ import {
     getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { 
-    profileActions, profileReducer } from '../../model/slices/profileSlice';
+import {
+    profileActions,
+    profileReducer,
+} from '../../model/slices/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
