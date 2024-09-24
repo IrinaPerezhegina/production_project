@@ -37,7 +37,6 @@ ThunkConfig<string>
 
             dispatch(fetchCommentsByArticleId(article.id));
             return response.data;
-            
         } catch (e) {
             return rejectWithValue('error');
         }

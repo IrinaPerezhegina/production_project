@@ -15,12 +15,6 @@ export function buildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
 
     const cssLoaders = buildCssLoader(isDev);
 
-    // const typescriptLoader = {
-    //     test: /\.tsx?$/,
-    //     use: 'ts-loader',
-    //     exclude: /node_modules/,
-    // };
-
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
@@ -36,8 +30,6 @@ export function buildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
         svgLoader,
         codeBabelLoader,
         tsxCodeBabelLoader,
-        // babelLoader,
-        // typescriptLoader,
         cssLoaders,
     ];
 }
