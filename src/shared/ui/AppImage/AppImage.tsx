@@ -4,17 +4,17 @@ import {
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
    className?: string;
-   fallback?:ReactElement;
-   errorFallback?:ReactElement;
+   fallback?: ReactElement;
+   errorFallback?: ReactElement;
 }
 
-export const AppImage = memo((props:AppImageProps) => {
+export const AppImage = memo((props: AppImageProps) => {
     const {
         className,
         src,
         alt = 'image',
-        fallback,
         errorFallback,
+        fallback,
         ...otherProps
     } = props;
     const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,7 @@ export const AppImage = memo((props:AppImageProps) => {
     }, [src]);
 
     if (isLoading && fallback) {
-        return errorFallback;
+        return fallback;
     }
 
     if (hasError && errorFallback) {
@@ -41,11 +41,6 @@ export const AppImage = memo((props:AppImageProps) => {
     }
 
     return (
-        <img
-            className={className}
-            alt={alt}
-            src={src}
-            {...otherProps}
-        />
+        <img className={className} src={src} alt={alt} {...otherProps} />
     );
 });
