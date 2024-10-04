@@ -22,7 +22,6 @@ Article[],
              }
 
              return response.data;
-             
          } catch (e) {
              return rejectWithValue('error');
          }
