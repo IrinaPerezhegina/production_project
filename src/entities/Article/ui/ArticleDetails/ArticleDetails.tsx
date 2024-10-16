@@ -19,7 +19,6 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
     getArticleDetailsData,
@@ -31,6 +30,7 @@ import {
     ArticleImageBlockComponent,
 } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
    className?: string;
