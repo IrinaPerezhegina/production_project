@@ -22,6 +22,7 @@ export default {
     core: {
         builder: 'webpack5',
     },
+    staticDirs: ['./static'],
     webpackFinal: async (config: Configuration) => {
         const paths = {
             build: '',
