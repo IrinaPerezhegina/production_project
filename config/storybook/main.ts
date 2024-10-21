@@ -1,5 +1,6 @@
-import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+import webpack, { Configuration, DefinePlugin } from 'webpack';
 import path from 'path';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default {
@@ -22,7 +23,6 @@ export default {
     core: {
         builder: 'webpack5',
     },
-    staticDirs: ['./static'],
     webpackFinal: async (config: Configuration) => {
         const paths = {
             build: '',
@@ -40,19 +40,45 @@ export default {
         };
 
         // @ts-ignore
-        config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) {
-                return { ...rule, exclude: /\.svg$/i };
-            }
-
-            return rule;
-        });
-
-        config!.module!.rules.push({
-            test: /\.svg$/,
-            use: ['@svgr/webpack'],
-        });
-        config!.module!.rules.push(buildCssLoader(true));
+        if (config.module?.rules) {
+            // Исключаем дефолтный png jpg svg loader
+            // eslint-disable-next-line no-param-reassign
+            config.module.rules = config.module?.rules?.map(
+                // @ts-ignore
+                (rule: webpack.RuleSetRule | '...') => {
+                    if (
+                        rule !== '...'
+            && /svg/.test(rule.test as string)
+            && /png/.test(rule.test as string)
+            && /jpg/.test(rule.test as string)
+                    ) {
+                        return { ...rule, exclude: /\.(png|jpe?g|svg)$/i };
+                    }
+                    return rule;
+                },
+            );
+        }
+        config.module?.rules?.push(
+            {
+            // Добавляем png jpg loader
+                test: /\.(png|jpe?g)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'static/assets/', // Путь где будут лежать файлы
+                        },
+                    },
+                ],
+            },
+            {
+            // Добавляем svgr loader
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
+            },
+        );
+        config!.module?.rules?.push(buildCssLoader(true));
 
         config!.plugins!.push(new DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
