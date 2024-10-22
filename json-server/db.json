@@ -754,6 +754,15 @@
         "MANAGER"
       ],
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     }
   ],
   "profile": [
@@ -777,6 +786,17 @@
       "country": "Belarus",
       "city": "Moskow",
       "username": "user",
+      "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
+    },
+    {
+      "id": "4",
+      "first": "Test",
+      "lastname": "Test",
+      "age": 25,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moskow",
+      "username": "testuser",
       "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
     }
   ],
