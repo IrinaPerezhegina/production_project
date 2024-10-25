@@ -549,6 +549,149 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "LYIYntn"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "Wgp3ge7"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "memATMN"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "g_K7E2w"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "7VsSyOl"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "xDtmu82"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "n2lttIc"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "5OXZZev"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "IxH361D"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "L80dps0"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test",
+      "img": "https://d3mxt5v3yxgcsr.cloudfront.net/courses/15007/course_15007_image.png",
+      "views": 100,
+      "createdAt": "26.02.2015",
+      "userId": "1",
+      "type": [
+        "TEST"
+      ],
+      "blocks": [],
+      "id": "Ek2vOig"
     }
   ],
   "comments": [
