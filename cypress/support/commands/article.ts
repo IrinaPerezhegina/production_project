@@ -21,7 +21,7 @@ export const createArticle = (article?: Article) => {
 };
 
 export const removeArticle = (articleId:string) => cy.request({
-    method: 'DELLETE',
+    method: 'DELETE',
     url: `http://localhost:8000/articles/${articleId}`,
     headers: { Authorization: 'aaa' },
 });
