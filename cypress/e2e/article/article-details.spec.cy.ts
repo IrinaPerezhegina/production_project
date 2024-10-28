@@ -12,7 +12,6 @@ describe('Пользователь заходит на страницу стат
         cy.removeArticle(currentArticleId);
         cy.visit(`/articles/${currentArticleId}`);
     });
-
     // Создали статью, текстируем и удаляем
     it('и видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');

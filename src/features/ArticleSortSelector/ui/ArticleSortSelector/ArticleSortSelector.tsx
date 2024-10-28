@@ -63,14 +63,19 @@ export const ArticleSortSelector = memo((props:ArticleSortSelectorProps) => {
     );
 
     return (
-        <div className={classNames(cls.articleSortSelector, {}, [className])}>
+        <div
+            data-testid="ArticleSortSelector"
+            className={classNames(cls.articleSortSelector, {}, [className])}
+        >
             <Select
+                data-testid="ArticleSortSelector.Content"
                 options={sortFieldOptions}
                 label={t('sort by')}
                 value={sort}
                 onChange={onChangeSort}
             />
             <Select
+                data-testid="ArticleSortSelector.Desc"
                 className={cls.order}
                 options={orderOptions}
                 label={t('by')}

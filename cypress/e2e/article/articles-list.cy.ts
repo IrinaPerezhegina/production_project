@@ -8,4 +8,9 @@ describe('Пользователь заходит на страницу со с�
         cy.getByTestId('ArticleList').should('exist');
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
     });
+    it('и  сортирует по названию', () => {
+        cy.getByTestId('ArticleSortSelector').should('exist');
+        cy.get(':nth-child(1) > .src-shared-ui-Select-Select-module__select--VOKOu')
+            .select('названию');
+    });
 });
