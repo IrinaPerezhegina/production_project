@@ -6,11 +6,10 @@ import {
     useState,
 } from 'react';
 
-interface useModalProps{
-    onClose?:()=>void;
-    isOpen?:boolean;
-    animationDelay:number;
-
+interface useModalProps {
+    onClose?: () => void;
+    isOpen?: boolean;
+    animationDelay: number;
 }
 
 /**
@@ -20,16 +19,14 @@ interface useModalProps{
  * @param onClose
  */
 
-export function useModal(props:useModalProps) {
-    const {
-        animationDelay,
-        isOpen,
-        onClose,
-    } = props;
+export function useModal(props: useModalProps) {
+    const { animationDelay, isOpen, onClose } = props;
 
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const close = useCallback(() => {
         if (onClose) {
@@ -41,11 +38,14 @@ export function useModal(props:useModalProps) {
         }
     }, [onClose, animationDelay]);
 
-    const onKeydown = useCallback((e:KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeydown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close();
+            }
+        },
+        [close],
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -53,13 +53,16 @@ export function useModal(props:useModalProps) {
         }
     }, [isOpen]);
 
-    useEffect(() => () => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeydown);
-        }
-        clearTimeout(timerRef.current);
-        window.removeEventListener('keydown', onKeydown);
-    }, [isOpen, onKeydown]);
+    useEffect(
+        () => () => {
+            if (isOpen) {
+                window.addEventListener('keydown', onKeydown);
+            }
+            clearTimeout(timerRef.current);
+            window.removeEventListener('keydown', onKeydown);
+        },
+        [isOpen, onKeydown],
+    );
 
     return {
         isMounted,

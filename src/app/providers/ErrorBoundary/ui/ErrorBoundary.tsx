@@ -4,17 +4,18 @@ import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 import { ErrorPage } from '@/widgets/ErrorPage';
 
 interface ErrorBoundaryProps {
-    children:ReactNode;
+    children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-    hasError:boolean;
-
+    hasError: boolean;
 }
 
-class ErrorBoundary
-    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-    constructor(props:ErrorBoundaryProps) {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
+    constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };
     }
@@ -23,7 +24,7 @@ class ErrorBoundary
         return { hasError: true };
     }
 
-    componentDidCatch(error:Error, info:ErrorInfo) {
+    componentDidCatch(error: Error, info: ErrorInfo) {
         // eslint-disable-next-line no-console
         console.log(error, info);
     }
@@ -32,7 +33,11 @@ class ErrorBoundary
         const { hasError } = this.state;
         const { children } = this.props;
         if (hasError) {
-            return <Suspense fallback=""><ErrorPage /></Suspense>;
+            return (
+                <Suspense fallback="">
+                    <ErrorPage />
+                </Suspense>
+            );
         }
 
         return children;

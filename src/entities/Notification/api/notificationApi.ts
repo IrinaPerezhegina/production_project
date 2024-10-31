@@ -8,8 +8,6 @@ const notificationsApi = rtkApi.injectEndpoints({
                 url: '/notifications',
             }),
         }),
-
     }),
 });
-export const useNotifications = notificationsApi
-    .useGetNotificationsQuery;
+export const useNotifications = notificationsApi.useGetNotificationsQuery;

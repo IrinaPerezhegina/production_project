@@ -12,11 +12,17 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: '100px' }}>
+                <Story />
+            </div>
+        ),
     ],
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {

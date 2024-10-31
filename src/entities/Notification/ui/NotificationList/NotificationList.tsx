@@ -7,18 +7,13 @@ import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationListProps {
-   className?: string;
+    className?: string;
 }
 
-export const NotificationList = memo((props:NotificationListProps) => {
-    const {
-        className,
-    } = props;
+export const NotificationList = memo((props: NotificationListProps) => {
+    const { className } = props;
 
-    const {
-        data,
-        isLoading,
-    } = useNotifications(null, {
+    const { data, isLoading } = useNotifications(null, {
         pollingInterval: 5000,
     });
 
@@ -29,21 +24,9 @@ export const NotificationList = memo((props:NotificationListProps) => {
                 max
                 className={classNames(cls.notificationList, {}, [className])}
             >
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
+                <Skeleton width="100%" border="8px" height="80px" />
+                <Skeleton width="100%" border="8px" height="80px" />
+                <Skeleton width="100%" border="8px" height="80px" />
             </VStack>
         );
     }

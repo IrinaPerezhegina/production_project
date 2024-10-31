@@ -12,16 +12,13 @@ import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
-import {
-    getRouteAdmin,
-    getRouteProfile,
-} from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-   className?: string;
+    className?: string;
 }
 
-export const AvatarDropdown = memo((props:AvatarDropdownProps) => {
+export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { className } = props;
     const { t } = useTranslation('translation');
     const dispatch = useAppDispatch();
@@ -41,10 +38,14 @@ export const AvatarDropdown = memo((props:AvatarDropdownProps) => {
         <Dropdown
             className={classNames(cls.avatarDropdown, {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('admin'),
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('admin'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('profile'),
                     href: getRouteProfile(authData.id),
@@ -55,8 +56,9 @@ export const AvatarDropdown = memo((props:AvatarDropdownProps) => {
                 },
             ]}
             direction="bottom left"
-            trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
+            trigger={
+                <Avatar fallbackInverted size={30} src={authData.avatar} />
+            }
         />
-
     );
 });

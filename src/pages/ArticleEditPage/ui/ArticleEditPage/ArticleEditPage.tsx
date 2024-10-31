@@ -5,17 +5,17 @@ import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-   className?: string;
+    className?: string;
 }
 
-const ArticleEditPage = memo((props:ArticleEditPageProps) => {
+const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const { id } = useParams < { id: string }>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
     return (
         <Page className={classNames('', {}, [className])}>
-            { isEdit ? t('Article Edit Page') : t('Article create Page')}
+            {isEdit ? t('Article Edit Page') : t('Article create Page')}
         </Page>
     );
 });

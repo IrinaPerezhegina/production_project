@@ -9,15 +9,19 @@ export default {
         backgroundColor: { control: 'color' },
     },
 
-    decorators: [(Story) => <div style={{ paddingLeft: '300px', paddingTop: '20px' }}><Story /></div>],
+    decorators: [
+        (Story) => (
+            <div style={{ paddingLeft: '300px', paddingTop: '20px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
+    <AvatarDropdown {...args} />
+);
 
-export const Normal = Template.bind({
-
-});
-Normal.args = {
-
-};
+export const Normal = Template.bind({});
+Normal.args = {};
 Normal.decorators = [StoreDecorator({ user: { authData: {} } })];

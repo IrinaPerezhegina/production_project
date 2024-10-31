@@ -9,6 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -25,16 +26,17 @@ module.exports = {
         'react-hooks',
         'irina-perezh-plugin',
         'unused-imports',
-
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        // 'react/jsx-indent': [2, 4],
+        // 'react/jsx-indent-props': [2, 4],
+        // indent: [2, 4],
         'unused-imports/no-unused-imports': 'error',
         // 'no-unused-vars': ['warn'],
-        'react/jsx-filename-extension':
-        [2, { extensions: ['.js', '.jsx', '.tsx'] },
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -47,24 +49,26 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         '@typescript-eslint/no-unused-vars': ['warn'],
-        'i18next/no-literal-string': ['error', {
-            markupOnly: true,
-            ignoreAttribute: [
-                'data-testid',
-                'to',
-                'target',
-                'justify',
-                'align',
-                'direction',
-                'gap',
-                'role',
-                'as',
-                'border',
-
-            ],
-        }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'role',
+                    'as',
+                    'border',
+                ],
+            },
+        ],
         'linebreak-style': 'off',
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 125 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков

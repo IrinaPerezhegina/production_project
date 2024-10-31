@@ -12,9 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = () => (
-    <AboutPage />
-);
+const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Daring = Template.bind({});
 Daring.args = {};

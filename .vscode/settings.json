@@ -1,28 +1,31 @@
- {
-"i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
-"i18n-ally.namespace": true,
-// "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
-"stylelint.config": null,
-"stylelint.enable": true,
-"css.validate": true,
-"scss.validate": true,
-"stylelint.validate": [
-"css",
-"scss"
-],
-"[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint" 
-},
-"[css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-},
-"editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": "always",
-    "source.fixAll.eslint": "always"
-},
-"i18n-ally.keystyle": "flat",
-"eslint.debug": true,
-"files.associations": {
-    "**/.fttemplates/**": "plaintext",
-    }
-} 
+{
+    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+    "i18n-ally.namespace": true,
+    // "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+    "stylelint.config": null,
+    "stylelint.enable": true,
+    "css.validate": true,
+    "scss.validate": true,
+    "stylelint.validate": ["css", "scss"],
+    "[scss]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "always",
+        "source.fixAll.eslint": "always"
+    },
+    "i18n-ally.keystyle": "flat",
+    "eslint.debug": true,
+    "files.associations": {
+        "**/.fttemplates/**": "plaintext"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "prettier.useEditorConfig": false,
+    "prettier.useTabs": false,
+    "prettier.configPath": ".prettierrc.json"
+}

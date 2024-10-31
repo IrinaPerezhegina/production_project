@@ -8,5 +8,4 @@ export interface ProfileSchema {
     error?: string;
     readonly: boolean;
     validateErrors?: ValidateProfileErrors[];
-
 }

@@ -18,12 +18,5 @@ export const BagButton = () => {
             throw new Error();
         }
     }, [error]);
-    return (
-        <Button
-            onClick={onThrow}
-        >
-            {t('throw error')}
-        </Button>
-
-    );
+    return <Button onClick={onThrow}>{t('throw error')}</Button>;
 };

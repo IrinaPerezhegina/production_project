@@ -15,8 +15,9 @@ describe('Пользователь заходит на страницу со с�
     });
     it('и  сортирует по названию', () => {
         cy.getByTestId('ArticleSortSelector').should('exist');
-        cy.get(':nth-child(1) > .src-shared-ui-Select-Select-module__select--VOKOu')
-            .select('названию');
+        cy.get(
+            ':nth-child(1) > .src-shared-ui-Select-Select-module__select--VOKOu',
+        ).select('названию');
     });
     it.skip('пример заскипанного теста', () => {
         cy.getByTestId('ArticleList').should('exist');

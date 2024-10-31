@@ -22,15 +22,15 @@ import {
 } from '../../model/selectors/addCommentFormSelectors';
 
 export interface AddCommentFormProps {
-   className?: string;
-   onSendComment:(text:string)=>void
+    className?: string;
+    onSendComment: (text: string) => void;
 }
 
-const reducers:ReducersList = {
+const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo((props:AddCommentFormProps) => {
+const AddCommentForm = memo((props: AddCommentFormProps) => {
     const { className, onSendComment } = props;
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
@@ -40,9 +40,12 @@ const AddCommentForm = memo((props:AddCommentFormProps) => {
 
     const { t } = useTranslation('article');
 
-    const onCommentTextChange = useCallback((value:string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -50,9 +53,7 @@ const AddCommentForm = memo((props:AddCommentFormProps) => {
     }, [onCommentTextChange, text, onSendComment]);
 
     return (
-        <DynamicModuleLoader
-            reducers={reducers}
-        >
+        <DynamicModuleLoader reducers={reducers}>
             <HStack
                 data-testid="AddCommentForm"
                 justify="between"

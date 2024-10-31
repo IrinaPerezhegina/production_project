@@ -11,22 +11,22 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
-const notification:Notification = {
+const notification: Notification = {
     id: '1',
     description: 'Title',
     title: 'Description',
     userId: '2',
-
 };
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({ })];
+Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {
@@ -47,7 +47,7 @@ Normal.parameters = {
 
 export const Daring = Template.bind({});
 Daring.args = {};
-Daring.decorators = [StoreDecorator({ }), ThemeDecorator(Theme.DARING)];
+Daring.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARING)];
 Daring.parameters = {
     mockData: [
         {

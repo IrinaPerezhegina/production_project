@@ -5,12 +5,11 @@ import { Notification } from '@/entities/Notification';
 import { Navbar } from './Navbar';
 import { Theme } from '@/shared/const/theme';
 
-const notification:Notification = {
+const notification: Notification = {
     id: '1',
     description: 'Title',
     title: 'Description',
     userId: '2',
-
 };
 
 export default {
@@ -33,7 +32,10 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
-AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } })];
+AuthNavbar.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: {} } }),
+];
 AuthNavbar.parameters = {
     mockData: [
         {

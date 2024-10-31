@@ -5,41 +5,43 @@ import { TabItem, Tabs } from '@/shared/ui/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-   className?: string;
-   value:ArticleType;
-   onChangeType:(type:ArticleType)=>void
+    className?: string;
+    value: ArticleType;
+    onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo((props:ArticleTypeTabsProps) => {
-    const {
-        className,
-        value,
-        onChangeType,
-    } = props;
+export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
+    const { className, value, onChangeType } = props;
     const { t } = useTranslation('article');
 
-    const typeTabs = useMemo<TabItem[]>(() => [
-        {
-            value: ArticleType.ALL,
-            content: t('all'),
-        },
-        {
-            value: ArticleType.IT,
-            content: t('IT'),
-        },
-        {
-            value: ArticleType.ECONOMICS,
-            content: t('economy'),
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content: t('science'),
-        },
-    ], [t]);
+    const typeTabs = useMemo<TabItem[]>(
+        () => [
+            {
+                value: ArticleType.ALL,
+                content: t('all'),
+            },
+            {
+                value: ArticleType.IT,
+                content: t('IT'),
+            },
+            {
+                value: ArticleType.ECONOMICS,
+                content: t('economy'),
+            },
+            {
+                value: ArticleType.SCIENCE,
+                content: t('science'),
+            },
+        ],
+        [t],
+    );
 
-    const onTabClickType = useCallback((tab:TabItem) => {
-        onChangeType(tab.value as ArticleType);
-    }, [onChangeType]);
+    const onTabClickType = useCallback(
+        (tab: TabItem) => {
+            onChangeType(tab.value as ArticleType);
+        },
+        [onChangeType],
+    );
 
     return (
         <Tabs
@@ -48,6 +50,5 @@ export const ArticleTypeTabs = memo((props:ArticleTypeTabsProps) => {
             value={value}
             className={classNames('', {}, [className])}
         />
-
     );
 });

@@ -4,10 +4,10 @@ import { Button } from '@/shared/ui/Button';
 import cls from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
-className?: string;
+    className?: string;
 }
 
-export const ErrorPage = ({ className }:ErrorPageProps) => {
+export const ErrorPage = ({ className }: ErrorPageProps) => {
     const { t } = useTranslation('translation');
 
     const reloadPage = () => {
@@ -18,6 +18,5 @@ export const ErrorPage = ({ className }:ErrorPageProps) => {
             <p>{t('unexpected error')}</p>
             <Button onClick={reloadPage}>{t('refresh the page')}</Button>
         </div>
-
     );
 };

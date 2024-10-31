@@ -4,9 +4,7 @@ import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default {
-    stories: [
-        '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         {
@@ -47,10 +45,10 @@ export default {
                 // @ts-ignore
                 (rule: webpack.RuleSetRule | '...') => {
                     if (
-                        rule !== '...'
-            && /svg/.test(rule.test as string)
-            && /png/.test(rule.test as string)
-            && /jpg/.test(rule.test as string)
+                        rule !== '...' &&
+                        /svg/.test(rule.test as string) &&
+                        /png/.test(rule.test as string) &&
+                        /jpg/.test(rule.test as string)
                     ) {
                         return { ...rule, exclude: /\.(png|jpe?g|svg)$/i };
                     }
@@ -60,7 +58,7 @@ export default {
         }
         config.module?.rules?.push(
             {
-            // Добавляем png jpg loader
+                // Добавляем png jpg loader
                 test: /\.(png|jpe?g)$/i,
                 use: [
                     {
@@ -73,18 +71,20 @@ export default {
                 ],
             },
             {
-            // Добавляем svgr loader
+                // Добавляем svgr loader
                 test: /\.svg$/,
                 use: ['@svgr/webpack'],
             },
         );
         config!.module?.rules?.push(buildCssLoader(true));
 
-        config!.plugins!.push(new DefinePlugin({
-            __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify('https://testapi.ru'),
-            __PROJECT__: JSON.stringify('storybook'),
-        }));
+        config!.plugins!.push(
+            new DefinePlugin({
+                __IS_DEV__: JSON.stringify(true),
+                __API__: JSON.stringify('https://testapi.ru'),
+                __PROJECT__: JSON.stringify('storybook'),
+            }),
+        );
         // Return the altered config
         return config;
     },

@@ -5,23 +5,25 @@ import { Button, ButtonTheme } from '../Button/Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
-   className?: string;
-   code:string;
+    className?: string;
+    code: string;
 }
 
-export const Code = memo((props:CodeProps) => {
+export const Code = memo((props: CodeProps) => {
     const { className, code } = props;
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(code);
     }, [code]);
     return (
         <pre className={classNames(cls.code, {}, [className])}>
-            <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+            <Button
+                onClick={onCopy}
+                className={cls.copyBtn}
+                theme={ButtonTheme.CLEAR}
+            >
                 <CopyIcon className={cls.copyIcon} />
             </Button>
-            <code>
-                {code}
-            </code>
+            <code>{code}</code>
         </pre>
     );
 });

@@ -3,12 +3,11 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Notification } from '@/entities/Notification';
 import { NotificationButton } from './NotificationButton';
 
-const notification:Notification = {
+const notification: Notification = {
     id: '1',
     description: 'Title',
     title: 'Description',
     userId: '2',
-
 };
 
 export default {
@@ -19,7 +18,9 @@ export default {
     },
 } as ComponentMeta<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
+const Template: ComponentStory<typeof NotificationButton> = (args) => (
+    <NotificationButton {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

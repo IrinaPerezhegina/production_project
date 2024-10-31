@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Article } from '@/entities/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
-const article:Article = {
+const article: Article = {
     id: '1',
     img: '',
     createdAt: '',
@@ -26,15 +26,19 @@ export default {
     },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {
@@ -49,7 +53,6 @@ Normal.parameters = {
                 { ...article, id: '5' },
                 { ...article, id: '6' },
             ],
-
         },
     ],
 };

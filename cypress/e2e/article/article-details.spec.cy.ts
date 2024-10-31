@@ -13,12 +13,8 @@ describe('Пользователь заходит на страницу стат
             cy.removeArticle(currentArticleId);
         });
     });
-    describe('Работа с АПИ', () => {
-
-    });
-    describe('Работа на фикстурах', () => {
-
-    });
+    describe('Работа с АПИ', () => {});
+    describe('Работа на фикстурах', () => {});
     // Создали статью, текстируем и удаляем
     it('и видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');
@@ -39,7 +35,9 @@ describe('Пользователь заходит на страницу стат
         cy.get('[data-selected=true]').should('have.length', 5);
     });
     it('и ставит оценку статье (пример со стабом на фикстурах )', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');

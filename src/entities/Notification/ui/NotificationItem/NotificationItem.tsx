@@ -7,11 +7,11 @@ import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
 
 interface NotificationItemProps {
-   className?: string;
-   item:Notification;
+    className?: string;
+    item: Notification;
 }
 
-export const NotificationItem = memo((props:NotificationItemProps) => {
+export const NotificationItem = memo((props: NotificationItemProps) => {
     const { className, item } = props;
 
     const content = (
@@ -19,19 +19,12 @@ export const NotificationItem = memo((props:NotificationItemProps) => {
             theme={CardTheme.OUTLINED}
             className={classNames(cls.notificationItem, {}, [className])}
         >
-            <Text
-                title={item.title}
-                text={item.description}
-            />
+            <Text title={item.title} text={item.description} />
         </Card>
     );
     if (item.href) {
         return (
-            <AppLink
-                className={cls.link}
-                to={item.href}
-                target="_blank"
-            >
+            <AppLink className={cls.link} to={item.href} target="_blank">
                 {content}
             </AppLink>
         );

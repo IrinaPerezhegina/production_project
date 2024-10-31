@@ -10,41 +10,41 @@ import { getCanEditArticle } from '../../model/selectors/article.ts/article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
-   className?: string;
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props:ArticleDetailsPageHeaderProps) => {
-    const { className } = props;
-    const { t } = useTranslation('article');
-    const navigate = useNavigate();
-    const canEdit = useSelector(getCanEditArticle);
-    const article = useSelector(getArticleDetailsData);
-    const onBackToList = useCallback(() => {
-        navigate(getRouteArticles());
-    }, [navigate]);
+export const ArticleDetailsPageHeader = memo(
+    (props: ArticleDetailsPageHeaderProps) => {
+        const { className } = props;
+        const { t } = useTranslation('article');
+        const navigate = useNavigate();
+        const canEdit = useSelector(getCanEditArticle);
+        const article = useSelector(getArticleDetailsData);
+        const onBackToList = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
 
-    const onEditArticle = useCallback(() => {
-        if (article) {
-            navigate(getRouteArticleEdit(article.id));
-        }
-    }, [navigate, article]);
+        const onEditArticle = useCallback(() => {
+            if (article) {
+                navigate(getRouteArticleEdit(article.id));
+            }
+        }, [navigate, article]);
 
-    return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
             >
-                {t('back to the list')}
-            </Button>
-            {canEdit && (
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEditArticle}
-                >
-                    {t('edit')}
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('back to the list')}
                 </Button>
-            )}
-        </HStack>
-    );
-});
+                {canEdit && (
+                    <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+                        {t('edit')}
+                    </Button>
+                )}
+            </HStack>
+        );
+    },
+);

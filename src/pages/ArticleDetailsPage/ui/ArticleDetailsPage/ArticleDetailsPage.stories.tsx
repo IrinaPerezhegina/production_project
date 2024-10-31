@@ -12,9 +12,11 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
-const rate:Rating = {
+const rate: Rating = {
     feedback: 'good',
     rate: 3,
 };
@@ -61,31 +63,29 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-    user: {
-        authData: { id: '1' },
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {
             url: 'http://testapi.ru/article-ratings?userId=1',
             method: 'GET',
             status: 200,
-            response: [
-                { ...rate, rate: 4 },
-            ],
+            response: [{ ...rate, rate: 4 }],
         },
         {
             url: 'http://testapi.ru/articles?_limit=3',
             method: 'GET',
             status: 200,
-            response:
-                article,
-
+            response: article,
         },
     ],
 };

@@ -15,10 +15,10 @@ import {
 import { getArticles } from '../../model/slices/articlePageSlice';
 
 interface ArticleInfiniteListProps {
-   className?: string;
+    className?: string;
 }
 
-export const ArticleInfiniteList = memo((props:ArticleInfiniteListProps) => {
+export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
@@ -36,13 +36,11 @@ export const ArticleInfiniteList = memo((props:ArticleInfiniteListProps) => {
     }
 
     return (
-
         <ArticleList
             className={className}
             isLoading={isLoading}
             view={view}
             articles={articles}
         />
-
     );
 });

@@ -7,10 +7,10 @@ import { Theme } from '@/shared/const/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface AppLinkProps {
-className?: string;
+    className?: string;
 }
 
-export const ThemeSwitcher = memo(({ className }:AppLinkProps) => {
+export const ThemeSwitcher = memo(({ className }: AppLinkProps) => {
     const { theme, toggleTheme } = useTheme();
     return (
         <Button

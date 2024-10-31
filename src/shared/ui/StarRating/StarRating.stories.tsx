@@ -11,19 +11,18 @@ export default {
     },
 } as ComponentMeta<typeof StarRating>;
 
-const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;
+const Template: ComponentStory<typeof StarRating> = (args) => (
+    <StarRating {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-};
+Normal.args = {};
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Daring = Template.bind({});
-Daring.args = {
-};
+Daring.args = {};
 Daring.decorators = [ThemeDecorator(Theme.DARING)];

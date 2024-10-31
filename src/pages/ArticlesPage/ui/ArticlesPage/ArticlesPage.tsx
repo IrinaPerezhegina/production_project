@@ -8,16 +8,14 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Page } from '@/widgets/Page';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
-import {
-    fetchNextArticlesPage,
-} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface ArticlesPageProps {
-   className?: string;
+    className?: string;
 }
-const reducers:ReducersList = {
+const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
