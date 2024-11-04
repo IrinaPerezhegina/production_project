@@ -9,7 +9,6 @@ describe('Sidebar', () => {
     });
     test('test toggle', () => {
         componentRender(<Sidebar />);
-        
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);
