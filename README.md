@@ -2,48 +2,47 @@
 
 ---
 
-  - npm install - устанавливаем зависимости
-  - npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта 
+-   npm install - устанавливаем зависимости
+-   npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта
 
 ---
 
+---
 
-
-----
 ## Скрипты
 
- - `npm run start` - Запуск frontend проекта на webpack dev server
- - `npm run start:vite`  - Запуск frontend проекта на vite
- - `npm run start:dev`  - Запуск frontend проекта на webpack dev server + backend
- - `npm run start:dev:vite`  - Запуск frontend проекта на vite + backend
- - `npm run start:dev:server`  - Запуск backend сервера
- - `npm run build:prod`  - Сброка в prod режиме
- - `npm run build:dev`  - Сброка в dev режиме(не минимизирован)
- - `npm run lint:ts`  - Проверка ts файлов линтером
- - `npm run lint:ts:fix`  - Исправление ts файлов линтером
- - `npm run lint:scss`  - Проверка scss файлов  style линтером
- - `npm run lint:scss:fix`  - Исправление scss файлов  style линтером
- - `npm run test:unit`  - Запуск unit тестов с jest
- - `npm run test:ui`  - Запуск скриншотных текстов с loki
- - `npm run test:ui:ok`  - Подтверждение новых скриншотов
- - `npm run test:ui:ci`  - Запуск скриншотных тестов в CI
- - `npm run test:ui:report`  - Генерация полного отчета для скриншотных тестов
- - `npm run test:ui:json`  - Генерация json отчета для скриншотных тестов
- - `npm run test:ui:json`  - Генерация HTML отчета для скриншотных тестов
- - `npm run storybook`  - Запуск Storybook
- - `npm run storybook:build`  - Сборка storybook билда
- - `npm run generate:slice`  - Скрипт для генерации  FSD слайсов
+-   `npm run start` - Запуск frontend проекта на webpack dev server
+-   `npm run start:vite` - Запуск frontend проекта на vite
+-   `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
+-   `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
+-   `npm run start:dev:server` - Запуск backend сервера
+-   `npm run build:prod` - Сброка в prod режиме
+-   `npm run build:dev` - Сброка в dev режиме(не минимизирован)
+-   `npm run lint:ts` - Проверка ts файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run lint:scss` - Проверка scss файлов style линтером
+-   `npm run lint:scss:fix` - Исправление scss файлов style линтером
+-   `npm run test:unit` - Запуск unit тестов с jest
+-   `npm run test:ui` - Запуск скриншотных текстов с loki
+-   `npm run test:ui:ok` - Подтверждение новых скриншотов
+-   `npm run test:ui:ci` - Запуск скриншотных тестов в CI
+-   `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
+-   `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
+-   `npm run test:ui:json` - Генерация HTML отчета для скриншотных тестов
+-   `npm run storybook` - Запуск Storybook
+-   `npm run storybook:build` - Сборка storybook билда
+-   `npm run generate:slice` - Скрипт для генерации FSD слайсов
 
+---
 
-----
 ## Архитектура проекта
 
 Проект написан в соответтсвии с методологией Features sliced design
 
 Ссылка на документацию -[features sliced design](https://feature-sliced.design/ru/docs/get-started/overview)
 
+---
 
-----
 ## Работа с переводами
 
 В проекте используется библиотека i18next для работы с переводами. Файлы с переводами хранятся в public/locales
@@ -52,43 +51,50 @@
 
 Документация i18next-[i18next](https://www.i18next.com/)
 
-----
+---
+
 ## Тесты
 
 В проекте используются 4 вида тестов:
-1) Обычные unit тесты на jest - `npm run test:unit` 
-2) Тесты на компоненты с React testing library - `npm run test:unit` 
-3) Скриншотные тесты с loki - `npm run test:ui`
-4) e2e тестирование с Cypress - `npm run test:e2e`
+
+1. Обычные unit тесты на jest - `npm run test:unit`
+2. Тесты на компоненты с React testing library - `npm run test:unit`
+3. Скриншотные тесты с loki - `npm run test:ui`
+4. e2e тестирование с Cypress - `npm run test:e2e`
 
 Подробнее о тестах - [документация тестирование](/docs//tests.md)
 
-----
+---
+
 ## Линтинг
 
 В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
 
-Также для строго контроля главных архитектурных принципов используется собственный eslint plugin *eslint-plugin-irina-perezh-plugin*, который содержит 3 правила:
-1) path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
-2) layer-imports - проверяет корректность использования слоев с точки зрения FSD(например, widgets нельзя использовать в features и entities)
-3) public-api-imports - разрешает импорт из дпугих модулей только из public api. Имеет auto fix
+Также для строго контроля главных архитектурных принципов используется собственный eslint plugin _eslint-plugin-irina-perezh-plugin_, который содержит 3 правила:
+
+1. path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
+2. layer-imports - проверяет корректность использования слоев с точки зрения FSD(например, widgets нельзя использовать в features и entities)
+3. public-api-imports - разрешает импорт из дпугих модулей только из public api. Имеет auto fix
 
 #### Запуск линтеров
- - `npm run lint:ts`  - Проверка ts файлов линтером
- - `npm run lint:ts:fix`  - Исправление ts файлов линтером
- - `npm run lint:scss`  - Проверка scss файлов  style линтером
- - `npm run lint:scss:fix`  - Исправление scss файлов  style линтером
 
-----
+-   `npm run lint:ts` - Проверка ts файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run lint:scss` - Проверка scss файлов style линтером
+-   `npm run lint:scss:fix` - Исправление scss файлов style линтером
+
+---
+
 ## Storybook
 
-В проекте для каждого компонента описаваются стори-кейсы. 
+В проекте для каждого компонента описаваются стори-кейсы.
 Запросы на сервер мокаются с помощью storybook-addon-mock.
 
 Файл со сторикейсами создается рядом с компонентом с расширением .stories.tsx
 
-Запустить сторибук можно командой 
-- `npm run storybook`  - Запуск Storybook
+Запустить сторибук можно командой
+
+-   `npm run storybook` - Запуск Storybook
 
 Подробнее о [Storybook](/docs/storybook.md)
 
@@ -197,26 +203,27 @@ Disabled.args = {
 };
 ```
 
-
-----
+---
 
 ## Конфигурация проекта
 
 Для разработки проект содержит 2 конфигаЖ
+
 1. Webpack - ./config/build
 2. Vite - vite.config.ts
 
 Оба сборщика адаптированы под основные фичи приложения.
 
 Вся конфигурация хранится в /config
-- /config/babel - babel
-- /config/build -конфигурация webpack
-- /config/jest -конфигурация тестовой среды
-- /config/storybook -конфигурация сторибука
+
+-   /config/babel - babel
+-   /config/build -конфигурация webpack
+-   /config/jest -конфигурация тестовой среды
+-   /config/storybook -конфигурация сторибука
 
 В папке scripts находятся различные скрипты для рефакторинга/упрощения написания коды/генерации отчетов и т.д.
 
-----
+---
 
 ## CI pipeline и pre commit хуки
 
@@ -230,29 +237,39 @@ Disabled.args = {
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
+---
 
-----
+### Работа с features-flags
+
+Разрешено использование features flags только с помощью хелпера toggleFeatures. В него передается объект с опциями (name - название фича-флага, on - функция , которая отработает после Включения фичи, off - функция , которая отработает после Выключения фичи)
+Для автоматического удаления фичи из кода необходимо использовать скрипт remove-features.ts, который принимает два обязательных аргумента:
+
+1. Название удаляемого фича-флага;
+2. Состояние (on/off).
+
+---
+
 ## Сущности(entities)
 
-- [Article](/src/entities/Article/README.md)
-- [Comment](/src/entities/Comment/README.md)
-- [Counter](/src/entities/Counter/README.md)
-- [Country](/src/entities/Country/README.md)
-- [Currency](/src/entities/Currency/README.md)
-- [Notification](/src/entities/Notification/README.md)
-- [Profile](/src/entities/Profile/README.md)
-- [Rating](/src/entities/Rating/README.md)
-- [User](/src/entities/User/README.md)
+-   [Article](/src/entities/Article/README.md)
+-   [Comment](/src/entities/Comment/README.md)
+-   [Counter](/src/entities/Counter/README.md)
+-   [Country](/src/entities/Country/README.md)
+-   [Currency](/src/entities/Currency/README.md)
+-   [Notification](/src/entities/Notification/README.md)
+-   [Profile](/src/entities/Profile/README.md)
+-   [Rating](/src/entities/Rating/README.md)
+-   [User](/src/entities/User/README.md)
 
 ## Фичи(features)
 
-- [addCommentForm](/src/features/addCommentForm/README.md)
-- [articleRating](/src/features/articleRating/README.md)
-- [articleRecommendationsList](/src/features/articleRecommendationsList/README.md)
-- [AuthByUsername](/src/features/AuthByUsername/README.md)
-- [avatarDropdown](/src/features/avatarDropdown/README.md)
-- [editableProfileCard](/src/features/editableProfileCard/README.md)
-- [LangSwitcher](/src/features/LangSwitcher/README.md)
-- [notificationButton](/src/features/notificationButton/README.md)
-- [ThemeSwitcher](/src/features/ThemeSwitcher/README.md)
-- [UI](/src/features/UI/README.md)
+-   [addCommentForm](/src/features/addCommentForm/README.md)
+-   [articleRating](/src/features/articleRating/README.md)
+-   [articleRecommendationsList](/src/features/articleRecommendationsList/README.md)
+-   [AuthByUsername](/src/features/AuthByUsername/README.md)
+-   [avatarDropdown](/src/features/avatarDropdown/README.md)
+-   [editableProfileCard](/src/features/editableProfileCard/README.md)
+-   [LangSwitcher](/src/features/LangSwitcher/README.md)
+-   [notificationButton](/src/features/notificationButton/README.md)
+-   [ThemeSwitcher](/src/features/ThemeSwitcher/README.md)
+-   [UI](/src/features/UI/README.md)

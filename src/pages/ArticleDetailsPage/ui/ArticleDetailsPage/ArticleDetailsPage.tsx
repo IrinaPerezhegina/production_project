@@ -29,6 +29,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         return null;
     }
 
+    // const counter = toggleFeatures({
+    //     name: 'isCounterEnabled',
+    //     on: () => <CounterRedisined />,
+    //     off: () => <Counter />,
+    // });
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page
