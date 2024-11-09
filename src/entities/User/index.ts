@@ -1,3 +1,5 @@
+export { useJsonSettingsByKey } from './model/selectors/jsonSettings';
+
 export {
     isUserAdmin,
     isUserManager,

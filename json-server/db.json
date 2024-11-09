@@ -717,6 +717,11 @@
                 "isArticleRatingEnabled": true,
                 "isCounterEnabled": true
             },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
+            },
             "avatar": "https://cdn.fishki.net/upload/post/2019/10/28/3125789/depositphotos-hacker.jpg"
         },
         {
@@ -727,6 +732,11 @@
             "features": {
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": false
+            },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
             },
             "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
         },
@@ -739,6 +749,11 @@
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": true
             },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
+            },
             "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
         },
         {
@@ -749,6 +764,11 @@
             "features": {
                 "isArticleRatingEnabled": true,
                 "isCounterEnabled": false
+            },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
             },
             "avatar": "https://papik.pro/grafic/uploads/posts/2023-04/1682609980_papik-pro-p-smail-podderzhka-kartinka-png-46.png"
         }
