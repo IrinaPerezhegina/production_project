@@ -1,11 +1,8 @@
 import { buildSelector } from '@/shared/store';
 import { JsonSettings } from '../types/jsonSettings';
 
-export const [useJsonSettings, getJsonSettings] = buildSelector(
-    (state) => state.user?.authData?.jsonSettings,
-);
+const defaultJsonSettings: JsonSettings = {};
 
-export const [useJsonSettingsByKey, getJsonSettingsByKey] = buildSelector(
-    (state, key: keyof JsonSettings) =>
-        state.user?.authData?.jsonSettings?.[key],
+export const [useJsonSettings, getJsonSettings] = buildSelector(
+    (state) => state.user?.authData?.jsonSettings ?? defaultJsonSettings,
 );
