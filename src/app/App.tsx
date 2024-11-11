@@ -1,18 +1,19 @@
 import './styles/index.scss';
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserInited, userActions } from '@/entities/User';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { AppRouter } from './providers/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const App = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        dispatch(initAuthData());
     }, [dispatch]);
 
     return (
