@@ -7,6 +7,7 @@ import { getUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { AppRouter } from './providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
 
 const App = () => {
     const dispatch = useAppDispatch();
@@ -15,6 +16,10 @@ const App = () => {
     useEffect(() => {
         dispatch(initAuthData());
     }, [dispatch]);
+
+    if (!inited) {
+        return <PageLoader />;
+    }
 
     return (
         <div className={classNames('app', {}, [])}>
