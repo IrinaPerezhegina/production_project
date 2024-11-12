@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
 import {
@@ -14,6 +15,8 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
+import { ToggleFeatures } from '@/shared/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -24,16 +27,11 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
+    const { t } = useTranslation('article');
 
     if (!id) {
         return null;
     }
-
-    // const counter = toggleFeatures({
-    //     name: 'isCounterEnabled',
-    //     on: () => <CounterRedisined />,
-    //     off: () => <Counter />,
-    // });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -44,6 +42,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />
+                    {/* <ArticleRating articleId={id} /> */}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
