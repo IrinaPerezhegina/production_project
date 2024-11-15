@@ -9,6 +9,7 @@ import { AppRouter } from './providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App = () => {
     const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const App = () => {
                         <Navbar />
                         <div className="content-page">
                             <Sidebar />
-                            {inited && <AppRouter />}
+                            <AppRouter />
                         </div>
                     </Suspense>
                 </div>
@@ -38,8 +39,12 @@ const App = () => {
             on={
                 <div className={classNames('app_redesigned', {}, [])}>
                     <Suspense fallback="">
-                        <Sidebar />
-                        {inited && <AppRouter />}
+                        <MainLayout
+                            content={<AppRouter />}
+                            header={<Navbar />}
+                            sidebar={<Sidebar />}
+                            toolbar={<div>12345</div>}
+                        />
                     </Suspense>
                 </div>
             }

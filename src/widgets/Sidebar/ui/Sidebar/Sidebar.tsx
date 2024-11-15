@@ -9,6 +9,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebatItem/SidebarItem';
 import { ToggleFeatures } from '@/shared/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string;
@@ -77,7 +78,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                         [className],
                     )}
                 >
-                    1234
+                    <AppLogo className={cls.appLogo} />
                 </aside>
             }
         />
