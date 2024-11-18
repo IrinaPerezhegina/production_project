@@ -9,7 +9,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebatItem/SidebarItem';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 
 interface SidebarProps {
     className?: string;
