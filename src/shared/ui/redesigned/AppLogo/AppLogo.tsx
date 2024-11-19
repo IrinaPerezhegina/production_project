@@ -6,10 +6,11 @@ import AppSvg from '@/shared/assets/icons/avatar_new.svg';
 
 interface AppLogoProps {
     className?: string;
+    size?: number;
 }
 
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className } = props;
+    const { className, size } = props;
 
     return (
         <HStack
@@ -19,7 +20,12 @@ export const AppLogo = memo((props: AppLogoProps) => {
         >
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
-            <AppSvg className={cls.appLogo} width={100} height={100} />
+            <AppSvg
+                color="black"
+                className={cls.appLogo}
+                width={size}
+                height={size}
+            />
         </HStack>
     );
 });
