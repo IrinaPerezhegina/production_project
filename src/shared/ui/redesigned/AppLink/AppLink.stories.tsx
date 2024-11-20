@@ -20,13 +20,13 @@ const Template: ComponentStory<typeof AppLink> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-    children: 'Text',
+    children: 'Text new',
     variant: 'primary',
 };
 
 export const Red = Template.bind({});
 Red.args = {
-    children: 'Text',
+    children: 'Text new',
     variant: 'red',
 };
 

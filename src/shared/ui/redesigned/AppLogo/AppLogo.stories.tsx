@@ -14,4 +14,6 @@ const Template: ComponentStory<typeof AppLogo> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    size: 50,
+};

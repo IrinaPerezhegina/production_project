@@ -7,7 +7,7 @@
   "Page not found": "Page not found",
   "main": "Main",
   "about": "About Page",
-  "lang": "English",
+  "lang": "EN",
   "unexpected error": "An unexpected error has occurred",
   "refresh the page": "Refresh the page",
   "throw error": "throw error",
@@ -28,5 +28,6 @@
   "admin": "Admin",
   "you do not have access to this page": "You do not have access to this page",
   "welcome to the articles page": "Welcome to the articles page",
-  "here you can search and view articles on various topics": "Here you can search and view articles on various topics"
+  "here you can search and view articles on various topics": "Here you can search and view articles on various topics",
+  "shortNew": "EN"
 }

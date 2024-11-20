@@ -1,11 +1,17 @@
 import { memo, useCallback } from 'react';
-import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { saveJsonSettings } from '@/entities/User';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ThemeIcon from '@/shared/assets/icons/theme-new.svg';
 
 interface AppLinkProps {
     className?: string;
@@ -23,12 +29,30 @@ export const ThemeSwitcher = memo(({ className }: AppLinkProps) => {
     }, [toggleTheme, dispatch]);
 
     return (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            className={classNames('', {}, [className])}
-            onClick={onToggleHandler}
-        >
-            <Icon Svg={ThemeIcon} width={40} height={40} inverted />
-        </Button>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <ButtonDeprecated
+                    theme={ButtonTheme.CLEAR}
+                    className={classNames('', {}, [className])}
+                    onClick={onToggleHandler}
+                >
+                    <IconDeprecated
+                        Svg={ThemeIconDeprecated}
+                        width={40}
+                        height={40}
+                        inverted
+                    />
+                </ButtonDeprecated>
+            }
+            on={
+                <Icon
+                    Svg={ThemeIcon}
+                    width={40}
+                    clickable
+                    onClick={onToggleHandler}
+                />
+            }
+        />
     );
 });
