@@ -46,13 +46,16 @@ NoAuth.decorators = [
     }),
 ];
 
-// export const DarkRedesigned = Template.bind({});
-// DarkRedesigned.args = {};
-// Dark.decorators = [
-//     ThemeDecorator(Theme.DARK),
-//     StoreDecorator({
-//         user: {
-//             authData: {},
-//         },
-//     }),
-// ];
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {};
+DarkRedesigned.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                features: {
+                    isAppRedesigned: true,
+                },
+            },
+        },
+    }),
+];
