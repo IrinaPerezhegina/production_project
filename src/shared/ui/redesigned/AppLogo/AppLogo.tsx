@@ -10,7 +10,7 @@ interface AppLogoProps {
 }
 
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className, size } = props;
+    const { className, size = 50 } = props;
 
     return (
         <HStack
