@@ -8,11 +8,14 @@ import {
     isUserManager,
     userActions,
 } from '@/entities/User';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -34,30 +37,49 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     if (!authData) {
         return null;
     }
+    const items = [
+        ...(isAdminPanelAvailable
+            ? [
+                  {
+                      content: t('admin'),
+                      href: getRouteAdmin(),
+                  },
+              ]
+            : []),
+        {
+            content: t('profile'),
+            href: getRouteProfile(authData.id),
+        },
+        {
+            content: t('exit'),
+            onClick: onLogout,
+        },
+    ];
+
     return (
-        <Dropdown
-            className={classNames(cls.avatarDropdown, {}, [className])}
-            items={[
-                ...(isAdminPanelAvailable
-                    ? [
-                          {
-                              content: t('admin'),
-                              href: getRouteAdmin(),
-                          },
-                      ]
-                    : []),
-                {
-                    content: t('profile'),
-                    href: getRouteProfile(authData.id),
-                },
-                {
-                    content: t('exit'),
-                    onClick: onLogout,
-                },
-            ]}
-            direction="bottom left"
-            trigger={
-                <Avatar fallbackInverted size={30} src={authData.avatar} />
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <DropdownDeprecated
+                    className={classNames(cls.avatarDropdown, {}, [className])}
+                    items={items}
+                    direction="bottom left"
+                    trigger={
+                        <AvatarDeprecated
+                            fallbackInverted
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    }
+                />
+            }
+            on={
+                <Dropdown
+                    className={classNames(cls.avatarDropdown, {}, [className])}
+                    items={items}
+                    direction="bottom left"
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                />
             }
         />
     );
