@@ -2,24 +2,29 @@
     position: relative;
 }
 
+.menu {
+    border-radius: 18px;
+    border: 1px solid var(--accent-redesigned);
+    overflow: hidden;
+
+    .active {
+        background: var(--light-bg-redesigned);
+    }
+}
+
 .trigger {
     background: none;
     outline: none;
     margin: 0;
     padding: 0;
-    border: 0;
+    border: none;
     cursor: pointer;
 }
 
-.menu {
-    border-radius: 10px;
-    border: 1px solid var(--accent-redesigned);
-    overflow: hidden;
-}
+// .active {
+//     background: var(--light-bg-redesigned);
 
-.active {
-    background: var(--light-bg-redesigned);
-}
+// }
 
 .optionsBottomLeft {
     top: 100%;

@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Text } from './Text';
 
 export default {
-    title: 'shared/Text',
+    title: 'shared/Text/Redesigned',
     component: Text,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,12 +15,23 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
+    align: 'center',
+    variant: 'primary',
     title: 'Title lorem lorem',
     text: 'Description',
 };
 
+export const Accent = Template.bind({});
+Accent.args = {
+    align: 'left',
+    title: 'Title lorem lorem',
+    text: 'Description',
+    variant: 'accent',
+};
+
 export const Error = Template.bind({});
 Error.args = {
+    align: 'right',
     title: 'Title lorem lorem',
     text: 'Description',
     variant: 'error',

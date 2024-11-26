@@ -1,18 +1,21 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ListBox } from './ListBox';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/ListBox/Redesigned',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     decorators: [
         (Story) => (
-            <div style={{ padding: '100px' }}>
+            <div style={{ padding: '300px' }}>
                 <Story />
             </div>
         ),
+        ThemeDecorator(Theme.DARING),
     ],
 } as ComponentMeta<typeof ListBox>;
 
