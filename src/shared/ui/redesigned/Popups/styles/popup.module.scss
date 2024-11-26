@@ -11,8 +11,14 @@
     cursor: pointer;
 }
 
+.menu {
+    border-radius: 10px;
+    border: 1px solid var(--accent-redesigned);
+    overflow: hidden;
+}
+
 .active {
-    background: var(--inverted-primary-color);
+    background: var(--light-bg-redesigned);
 }
 
 .optionsBottomLeft {
