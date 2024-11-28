@@ -1,26 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { SortOrder } from '@/shared/types/sort';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { articlesPageActions } from '../../model/slices/articlePageSlice';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilters.module.scss';
-import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
+
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -29,63 +17,70 @@ interface ArticlesPageFiltersProps {
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
-    const dispatch = useAppDispatch();
-    const view = useSelector(getArticlesPageView);
-    const sort = useSelector(getArticlesPageSort);
-    const order = useSelector(getArticlesPageOrder);
-    const search = useSelector(getArticlesPageSearch);
-    const type = useSelector(getArticlesPageType);
 
-    const fetchData = useCallback(() => {
-        dispatch(fetchArticlesList({ replace: true }));
-    }, [dispatch]);
+    const {
+        onChangeOrder,
+        onChangeSort,
+        onChangeType,
+        onChangeSearch,
+        onChangeView,
+        order,
+        search,
+        sort,
+        type,
+        view,
+    } = useArticleFilters();
 
-    const debounceFetchData = useDebounce(fetchData, 500);
+    // const fetchData = useCallback(() => {
+    //     dispatch(fetchArticlesList({ replace: true }));
+    // }, [dispatch]);
 
-    const onChangeOrder = useCallback(
-        (newOrder: SortOrder) => {
-            dispatch(articlesPageActions.setOrder(newOrder));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+    // const debounceFetchData = useDebounce(fetchData, 500);
 
-    const onChangeSort = useCallback(
-        (newSort: ArticleSortField) => {
-            dispatch(articlesPageActions.setSort(newSort));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+    // const onChangeOrder = useCallback(
+    //     (newOrder: SortOrder) => {
+    //         dispatch(articlesPageActions.setOrder(newOrder));
+    //         dispatch(articlesPageActions.setPage(1));
+    //         fetchData();
+    //     },
+    //     [dispatch, fetchData],
+    // );
 
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+    // const onChangeSort = useCallback(
+    //     (newSort: ArticleSortField) => {
+    //         dispatch(articlesPageActions.setSort(newSort));
+    //         dispatch(articlesPageActions.setPage(1));
+    //         fetchData();
+    //     },
+    //     [dispatch, fetchData],
+    // );
 
-    const onChangeSearch = useCallback(
-        (search: string) => {
-            dispatch(articlesPageActions.setSearch(search));
-            dispatch(articlesPageActions.setPage(1));
-            debounceFetchData();
-        },
-        [dispatch, debounceFetchData],
-    );
+    // const onChangeView = useCallback(
+    //     (view: ArticleView) => {
+    //         dispatch(articlesPageActions.setView(view));
+    //         dispatch(articlesPageActions.setPage(1));
+    //         fetchData();
+    //     },
+    //     [dispatch, fetchData],
+    // );
 
-    const onChangeType = useCallback(
-        (value: ArticleType) => {
-            dispatch(articlesPageActions.setType(value));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+    // const onChangeSearch = useCallback(
+    //     (search: string) => {
+    //         dispatch(articlesPageActions.setSearch(search));
+    //         dispatch(articlesPageActions.setPage(1));
+    //         debounceFetchData();
+    //     },
+    //     [dispatch, debounceFetchData],
+    // );
+
+    // const onChangeType = useCallback(
+    //     (value: ArticleType) => {
+    //         dispatch(articlesPageActions.setType(value));
+    //         dispatch(articlesPageActions.setPage(1));
+    //         fetchData();
+    //     },
+    //     [dispatch, fetchData],
+    // );
 
     return (
         <div className={classNames(cls.articlesPageFilters, {}, [className])}>

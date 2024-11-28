@@ -15,18 +15,18 @@ export interface ListBoxItem {
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     items?: ListBoxItem[];
     className?: string;
-    value?: string;
+    value?: T;
     defaultValue?: string;
-    onChange: (value: string) => void;
+    onChange: (value: T) => void;
     readonly?: boolean;
     direction?: DropdownDirection;
     label?: string;
 }
 
-export function ListBox(props: ListBoxProps) {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         items,
         className,
@@ -54,7 +54,9 @@ export function ListBox(props: ListBoxProps) {
                 onChange={onChange}
             >
                 <HListBox.Button className={popupCls.trigger}>
-                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
+                    <Button variant="filled" disabled={readonly}>
+                        {value ?? defaultValue}
+                    </Button>
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionsClasses)}
@@ -73,7 +75,7 @@ export function ListBox(props: ListBoxProps) {
                                         [popupCls.disabled]: item.disabled,
                                     })}
                                 >
-                                    {selected && ' ✔ '}
+                                    {selected}
                                     {item.content}
                                 </li>
                             )}

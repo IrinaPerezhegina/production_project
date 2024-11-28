@@ -5,6 +5,10 @@ import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
 import { SortOrder } from '@/shared/types/sort';
 import cls from './ArticleSortSelector.module.scss';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -53,25 +57,57 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     );
 
     return (
-        <div
-            data-testid="ArticleSortSelector"
-            className={classNames(cls.articleSortSelector, {}, [className])}
-        >
-            <Select
-                data-testid="ArticleSortSelector.Content"
-                options={sortFieldOptions}
-                label={t('sort by')}
-                value={sort}
-                onChange={onChangeSort}
-            />
-            <Select
-                data-testid="ArticleSortSelector.Desc"
-                className={cls.order}
-                options={orderOptions}
-                label={t('by')}
-                value={order}
-                onChange={onChangeOrder}
-            />
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <div
+                    data-testid="ArticleSortSelector"
+                    className={classNames(cls.articleSortSelector, {}, [
+                        className,
+                    ])}
+                >
+                    <Select
+                        data-testid="ArticleSortSelector.Content"
+                        options={sortFieldOptions}
+                        label={t('sort by')}
+                        value={sort}
+                        onChange={onChangeSort}
+                    />
+                    <Select
+                        data-testid="ArticleSortSelector.Desc"
+                        className={cls.order}
+                        options={orderOptions}
+                        label={t('by')}
+                        value={order}
+                        onChange={onChangeOrder}
+                    />
+                </div>
+            }
+            on={
+                <div
+                    data-testid="ArticleSortSelector"
+                    className={classNames(cls.articleSortSelector, {}, [
+                        className,
+                    ])}
+                >
+                    <VStack gap="8">
+                        <Text title={t('sort By')} />
+                        <ListBox
+                            data-testid="ArticleSortSelector.Content"
+                            items={sortFieldOptions}
+                            value={sort}
+                            onChange={onChangeSort}
+                        />
+                        <ListBox
+                            data-testid="ArticleSortSelector.Desc"
+                            className={cls.order}
+                            items={orderOptions}
+                            value={order}
+                            onChange={onChangeOrder}
+                        />
+                    </VStack>
+                </div>
+            }
+        />
     );
 });
