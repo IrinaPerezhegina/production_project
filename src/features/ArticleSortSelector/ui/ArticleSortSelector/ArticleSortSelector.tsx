@@ -86,12 +86,14 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
             on={
                 <div
                     data-testid="ArticleSortSelector"
-                    className={classNames(cls.articleSortSelector, {}, [
-                        className,
-                    ])}
+                    className={classNames(
+                        cls.articleSortSelectorRedesigned,
+                        {},
+                        [className],
+                    )}
                 >
                     <VStack gap="8">
-                        <Text title={t('sort By')} />
+                        <Text text={t('sort By')} />
                         <ListBox
                             data-testid="ArticleSortSelector.Content"
                             items={sortFieldOptions}
@@ -100,7 +102,6 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                         />
                         <ListBox
                             data-testid="ArticleSortSelector.Desc"
-                            className={cls.order}
                             items={orderOptions}
                             value={order}
                             onChange={onChangeOrder}

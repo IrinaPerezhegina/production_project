@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { FiltersContainer } from './FiltersConteiner';
+import { FiltersContainer } from './FiltersContainer';
 
 export default {
-    title: 'shared/FiltersContainer',
+    title: 'pages/ArticlesPage/FiltersContainer',
     component: FiltersContainer,
     argTypes: {
         backgroundColor: { control: 'color' },
