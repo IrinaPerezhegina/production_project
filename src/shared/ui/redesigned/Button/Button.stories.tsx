@@ -2,9 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from './Button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { Icon } from '../Icon';
+import IconButton from '@/shared/assets/icons/arrow.svg';
 
 export default {
-    title: 'shared/Button',
+    title: 'shared/Button/Redesigned',
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -74,4 +76,20 @@ OutlineMRedesigned.args = {
     children: 'Text New',
     variant: 'outline',
     size: 'm',
+};
+
+export const WithAddonLeft = Template.bind({});
+WithAddonLeft.args = {
+    children: 'Text New',
+    variant: 'outline',
+    size: 'm',
+    addonLeft: <Icon Svg={IconButton} />,
+};
+
+export const WithAddonRight = Template.bind({});
+WithAddonRight.args = {
+    children: 'Text New',
+    variant: 'outline',
+    size: 'm',
+    addonRight: <Icon Svg={IconButton} />,
 };
