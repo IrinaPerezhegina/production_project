@@ -4,7 +4,7 @@ import { Article } from '../../../model/types/article';
 import { ArticleView } from '../../../model/consts/consts';
 
 export default {
-    title: 'shared/ArticleListItemDeprecated',
+    title: 'entities/Article/ArticleListItem/Deprecated',
     component: ArticleListItemDeprecated,
     argTypes: {
         backgroundColor: { control: 'color' },

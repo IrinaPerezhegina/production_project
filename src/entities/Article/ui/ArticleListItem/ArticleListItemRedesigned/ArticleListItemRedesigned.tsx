@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/ClassNames/classNames';
-import cls from '../ArticleListItem.module.scss';
+import cls from './ArticleListItemRedesigned.module.scss';
 import { ArticleListItemProps } from '../ArticleListItem';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -13,7 +13,6 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { getRouteArticleDetails } from '@/shared/const/router';
@@ -59,10 +58,10 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                         alt={article.title}
                         className={cls.img}
                     />
-                    {testBlock && (
-                        <ArticleTextBlockComponent
-                            block={testBlock}
+                    {testBlock?.paragraphs && (
+                        <Text
                             className={cls.textBlock}
+                            text={testBlock.paragraphs.slice(0, 2).join(' ')}
                         />
                     )}
                     <HStack max justify="between">
