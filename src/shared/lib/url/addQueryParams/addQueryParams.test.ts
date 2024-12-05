@@ -12,6 +12,7 @@ describe('shared/url/addQueryParams', () => {
             test: 'value',
             second: '2',
         });
+
         expect(params).toBe('?test=value&second=2');
     });
     test('test with undefined', () => {
