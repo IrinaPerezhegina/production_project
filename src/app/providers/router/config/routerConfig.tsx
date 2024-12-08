@@ -51,6 +51,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ARTICLE_CREATE]: {
         path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
+
         authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
