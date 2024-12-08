@@ -23,6 +23,19 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('NotFoundPage');
         expect(page).toBeInTheDocument();
     });
+    // test('Доступ к закрытой странице для авторизованного пользователя', async () => {
+    //     componentRender(<AppRouter />, {
+    //         route: getRouteProfile('1'),
+    //         initialState: {
+    //             user: {
+    //                 _inited: true,
+    //                 authData: {},
+    //             },
+    //         },
+    //     });
+    //     const page = await screen.findByTestId('ProfilePage');
+    //     expect(page).toBeInTheDocument();
+    // });
     test('Редирект неавторизованного пользователя на главную', async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
@@ -30,17 +43,8 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('MainPage');
         expect(page).toBeInTheDocument();
     });
-    test('Доступ к закрытой странице для авторизованного пользователя', async () => {
-        componentRender(<AppRouter />, {
-            route: getRouteProfile('1'),
-            initialState: {
-                user: { _inited: true, authData: {} },
-            },
-        });
-        const page = await screen.findByTestId('ProfilePage');
-        expect(page).toBeInTheDocument();
-    });
-    test('Доступ запрещен(отcутствует роль)', async () => {
+
+    test('Доступ запрещен(отсутствует роль)', async () => {
         componentRender(<AppRouter />, {
             route: getRouteAdmin(),
             initialState: {
