@@ -34,6 +34,11 @@
   "sort by": "",
   "the article was not found": "",
   "there are no comments": "",
+  "viewing": "",
   "views": "",
-  "we recommend it": ""
+  "we recommend it": "",
+  "{{count}} viewing": "",
+  "{{count}} viewing_plural": "",
+  "{{views}} viewing": "",
+  "{{views}} viewing_plural": ""
 }
