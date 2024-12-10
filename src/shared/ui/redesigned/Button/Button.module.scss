@@ -6,7 +6,7 @@
 .Button {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: 6px 16px;
     cursor: pointer;
     color: var(--text-redesigned);
 
@@ -78,12 +78,12 @@
 
 .outline {
     background: none;
-    border: 1px solid var(--icon-redesigned);
+    border: 2px solid var(--icon-redesigned);
     outline: none;
     border-radius: 34px;
 
     &:hover {
-        border: 1px solid var(--accent-redesigned);
+        border: 2px solid var(--accent-redesigned);
     }
 }
 
