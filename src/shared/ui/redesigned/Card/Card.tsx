@@ -29,7 +29,7 @@ export const Card = memo((props: CardProps) => {
         max,
         padding = '8',
         border = 'normal',
-        fullHeight = false,
+        fullHeight,
         ...otherProps
     } = props;
     const paddingsClass = mapPaddingToClass[padding];
