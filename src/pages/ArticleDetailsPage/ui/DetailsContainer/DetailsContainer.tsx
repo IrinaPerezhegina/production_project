@@ -13,7 +13,13 @@ export const DetailsContainer = memo((props: DetailsContainerProps) => {
     const { id } = useParams<{ id: string }>();
     return (
         // eslint-disable-next-line react/jsx-max-props-per-line
-        <Card max fullHeight border="round" padding="24" className={className}>
+        <Card
+            max
+            fullHeight
+            border="partial"
+            padding="24"
+            className={className}
+        >
             <ArticleDetails id={id} />
         </Card>
     );
