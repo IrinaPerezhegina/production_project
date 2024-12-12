@@ -213,7 +213,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
             }
             on={
                 <Card
-                    border="round"
+                    border="partial"
                     padding="24"
                     max
                     data-testid="RatingCard"
