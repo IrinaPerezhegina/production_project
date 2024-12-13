@@ -14,6 +14,7 @@ export const updateFeatureFlags = createAsyncThunk<
     UpdateFeatureFlagsOptions,
     ThunkConfig<string>
  
+// eslint-disable-next-line consistent-return
 >('features/updateFeatureFlags', async ({ userId, newFeatures }, thunkAPI) => {
     const { rejectWithValue, dispatch } = thunkAPI;
 
