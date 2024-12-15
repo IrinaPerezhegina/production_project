@@ -28,7 +28,10 @@ const App = () => {
                 feature="isAppRedesigned"
                 off={<PageLoader />}
                 on={
-                    <div id="app" className={classNames('app', {}, [])}>
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [])}
+                    >
                         <AppLoaderLayout />
                     </div>
                 }

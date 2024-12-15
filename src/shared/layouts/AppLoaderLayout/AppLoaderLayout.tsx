@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import cls from './AppLoaderLayout.module.scss';
-import { MainLayout } from '../MainLayout';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { MainLayout } from '../MainLayout';
+import cls from './AppLoaderLayout.module.scss';
 
 export const AppLoaderLayout = memo(() => (
     <MainLayout
@@ -21,6 +21,6 @@ export const AppLoaderLayout = memo(() => (
                 <Skeleton width="80%" height="40%" border="16px" />
             </VStack>
         }
-        sidebar={<Skeleton border="32px" height="100%" width={220} />}
+        sidebar={<Skeleton border="32px" width={220} height="100%" />}
     />
 ));

@@ -69,9 +69,9 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             feature="isAppRedesigned"
             off={
                 <DropdownDeprecated
-                    className={classNames(cls.avatarDropdown, {}, [className])}
-                    items={items}
                     direction="bottom left"
+                    className={classNames('', {}, [className])}
+                    items={items}
                     trigger={
                         <AvatarDeprecated
                             fallbackInverted
