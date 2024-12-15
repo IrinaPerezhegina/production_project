@@ -13,8 +13,8 @@ export const updateFeatureFlags = createAsyncThunk<
     void,
     UpdateFeatureFlagsOptions,
     ThunkConfig<string>
- 
-// eslint-disable-next-line consistent-return
+
+    // eslint-disable-next-line consistent-return
 >('features/updateFeatureFlags', async ({ userId, newFeatures }, thunkAPI) => {
     const { rejectWithValue, dispatch } = thunkAPI;
 
