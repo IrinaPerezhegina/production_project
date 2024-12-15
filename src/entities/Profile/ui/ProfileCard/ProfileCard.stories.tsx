@@ -3,6 +3,7 @@ import avatar from '@/shared/assets/tests/avatar.jpg';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from './ProfileCard';
+import { NewDesignDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/ProfileCard',
@@ -15,9 +16,7 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
-
-export const Primary = Template.bind({});
-Primary.args = {
+const PrimaryArgs = {
     data: {
         first: 'Irina',
         username: 'admin',
@@ -29,6 +28,12 @@ Primary.args = {
         avatar,
     },
 };
+export const Primary = Template.bind({});
+Primary.args = PrimaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = PrimaryArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator];
 
 export const WithError = Template.bind({});
 WithError.args = {

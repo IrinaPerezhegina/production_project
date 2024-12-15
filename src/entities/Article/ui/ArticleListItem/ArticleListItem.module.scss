@@ -1,6 +1,6 @@
 .BIG {
     .views {
-        margin-left: 30px;
+        margin-left: auto;
     }
 
     .header {
@@ -29,10 +29,8 @@
 
     .footer {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         margin-top: 16px;
-        width: 100%;
     }
 
     .textBlock {
@@ -42,6 +40,7 @@
 }
 
 .SMALL {
+    width: 230px;
     transition: 0.2s;
     cursor: pointer;
 
@@ -103,13 +102,15 @@
     }
 }
 
-.articleListItemRedesigned {
+.ArticleListItemRedesigned {
     &.BIG {
         width: 100%;
     }
 
     &.SMALL {
-        width: 240px;
-        height: 350px;
+        .card {
+            height: 350px;
+            width: 240px;
+        }
     }
 }

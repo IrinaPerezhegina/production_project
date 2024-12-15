@@ -1,5 +1,5 @@
 import './styles/index.scss';
-import { Suspense, useEffect } from 'react';
+import { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -12,8 +12,11 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-const App = () => {
+const App = memo(() => {
+    const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
@@ -31,7 +34,7 @@ const App = () => {
                 on={
                     <div
                         id="app"
-                        className={classNames('app_redesigned', {}, [])}
+                        className={classNames('app_redesigned', {}, [theme])}
                     >
                         <AppLoaderLayout />
                     </div>
@@ -43,7 +46,7 @@ const App = () => {
         <ToggleFeatures
             feature="isAppRedesigned"
             off={
-                <div id="app" className={classNames('app', {}, [])}>
+                <div id="app" className={classNames('app', {}, [theme])}>
                     <Suspense fallback="">
                         <Navbar />
                         <div className="content-page">
@@ -54,7 +57,10 @@ const App = () => {
                 </div>
             }
             on={
-                <div id="app" className={classNames('app_redesigned', {}, [])}>
+                <div
+                    id="app"
+                    className={classNames('app_redesigned', {}, [theme])}
+                >
                     <Suspense fallback="">
                         <MainLayout
                             content={<AppRouter />}
@@ -67,6 +73,6 @@ const App = () => {
             }
         />
     );
-};
+});
 
-export default App;
+export default withTheme(App);
