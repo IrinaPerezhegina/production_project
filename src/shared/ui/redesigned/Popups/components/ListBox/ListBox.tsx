@@ -1,15 +1,14 @@
-import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/classNames';
+import { Listbox as HListBox } from '@headlessui/react';
 import { DropdownDirection } from '@/shared/types/ui';
-import cls from './ListBox.module.scss';
+import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
-import { Text } from '../../../Text/Text';
-import { HStack } from '../../../Stack';
+import cls from './ListBox.module.scss';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
-import { Icon } from '../../../Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow.svg';
+import { Icon } from '../../../Icon';
+import { classNames } from '@/shared/lib/ClassNames/classNames';
 
 export interface ListBoxItem {
     value: string;
@@ -23,15 +22,15 @@ interface ListBoxProps<T extends string> {
     value?: T;
     defaultValue?: string;
     onChange: (value: T) => void;
-    readonly?: boolean;
+    readonly?: boolean | undefined;
     direction?: DropdownDirection;
     label?: string;
 }
 
 export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
-        items,
         className,
+        items,
         value,
         defaultValue,
         onChange,
@@ -41,31 +40,32 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
+
     const selectedItem = useMemo(
         () => items?.find((item) => item.value === value),
         [items, value],
     );
+
     return (
         <HStack gap="4">
-            {label && <Text text={`${label}`} />}
+            {label && <span>{`${label}>`}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
-                className={classNames(cls.listBox, {}, [
+                className={classNames(cls.ListBox, {}, [
                     className,
                     popupCls.popup,
                 ])}
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button className={popupCls.trigger}>
-                    <Button
-                        variant="filled"
-                        disabled={readonly}
-                        addonRight={<Icon Svg={ArrowIcon} />}
-                    >
-                        {selectedItem?.content ?? defaultValue}
-                    </Button>
+                <HListBox.Button
+                    as={Button}
+                    className={cls.trigger}
+                    variant="filled"
+                    addonRight={<Icon Svg={ArrowIcon} />}
+                >
+                    {selectedItem?.content ?? defaultValue}
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionsClasses)}
