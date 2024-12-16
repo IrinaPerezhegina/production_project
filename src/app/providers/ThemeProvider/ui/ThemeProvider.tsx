@@ -18,8 +18,8 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     );
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme);
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme);
             setIsThemeInited(true);
         }
     }, [defaultTheme, isThemeInited]);
