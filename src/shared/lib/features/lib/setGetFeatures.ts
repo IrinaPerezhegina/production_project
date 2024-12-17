@@ -21,5 +21,5 @@ export function getFeatureFlags(flag: keyof FeatureFlags) {
 }
 
 export function getAllFeatureFlags() {
-    return featureFlags;
+    return featureFlags
 }
