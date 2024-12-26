@@ -28,6 +28,7 @@ export const updateFeatureFlags = createAsyncThunk<
                 },
             }),
         );
+
         window.location.reload();
     } catch (e) {
         return rejectWithValue('error');
