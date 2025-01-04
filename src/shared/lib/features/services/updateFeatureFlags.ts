@@ -27,8 +27,7 @@ export const updateFeatureFlags = createAsyncThunk<
                     ...newFeatures,
                 },
             }),
-        );
-        
+        );   
         
         window.location.reload();
     } catch (e) {
