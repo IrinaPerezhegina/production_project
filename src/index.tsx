@@ -15,6 +15,7 @@ if (!container) {
         'Контейнер root не найден. НЕ удалось вмонтировать реакт приложение',
     );
 }
+
 const root = createRoot(container);
 
 root.render(
